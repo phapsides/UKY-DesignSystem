@@ -1,0 +1,472 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "button/button";
+@use "objects/lists";
+@use "helpers/spacing";
+
+// Header main container
+.bc-header {
+	$self: &;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1500;
+    background: colors.fs-color(white);
+    border-bottom: 0.15rem solid colors.fs-color(brand-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    min-height: 4.75rem;
+    transition: all .3s linear;
+	@media only screen and (min-width: 769px) {
+		padding: 0.5rem 2.5rem;
+	}
+	@media only screen and (min-width: 1025px) {
+		border-bottom: 0;
+		min-height: 6rem;
+		transition: all .3s linear;
+	}
+	
+	// Header skew
+	&::after {
+		display: none;
+		@media only screen and (min-width: 1025px) {
+			display: block;
+			content: "";
+			width: 0;
+			height: 0;
+			border-top: 5rem solid colors.fs-color(white);
+			border-left: 120rem solid transparent;
+			z-index: 10;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			transform: translate(0,100%);
+			transition: all .3s linear;
+		}
+	}
+
+	// Header logo 
+	&__logo-container {
+		width: 11.2855rem;
+		height: auto;
+		margin-left: 1rem;
+		transition: filter .5s;
+		@media only screen and (min-width: 769px) {
+			margin-left: 0;
+		}
+		@media only screen and (min-width: 1025px) {
+			width: 21rem;
+			transition: all .3s linear;
+		}
+	}
+	&__row {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		margin-left: -15px;
+	}
+	&__col {
+		position: relative;
+		&:last-of-type {
+			text-align: right;
+		}
+	}
+	&__quick-nav {
+		display: none;
+		@media only screen and (min-width: 1025px) {
+			position: absolute;
+			right: 3rem;
+			bottom: -2rem;
+			z-index: 20;
+			display: block;
+			transition: all .3s linear;
+		}
+	}
+	&__quick-nav-menu {
+		@extend .fs-list;
+		margin: 0;
+		display: flex;
+		justify-content: flex-end;
+	}
+	&__quick-nav-menu-item {
+		margin-top: 0.5rem;
+		margin-left: 3rem;
+		&:first-of-type {
+			margin-left: 0;
+		}
+		a {
+			font-size: 1rem;
+			&[aria-current="page"],
+			&[aria-current="true"],
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		
+	}
+	a {
+		text-decoration: none;
+	}	
+}
+
+
+// Header icons and buttons
+.bc-header {
+	&__nav-share-toggle {
+		@include typography.fs-font-stack(sans, $weight: 700);
+		color: colors.fs-color(brand-secondary);
+		background: transparent;
+		border: none;
+		padding: 0;
+		text-transform: uppercase;
+		outline: 0;
+		transition: padding .1s;
+		cursor: pointer;
+		position: relative;
+		top: 0;
+		&.hide {
+			overflow: hidden;
+			height: 0;
+		}
+	}
+	&__nav-toggle {
+		@include typography.fs-font-stack(sans, $weight: 700);
+		transition: all .1s;
+		margin-right: 1rem;
+		font-size: 0;
+		color: colors.fs-color(brand-secondary);
+    	border: none;
+    	padding: 0;
+    	text-transform: uppercase;
+    	outline: 0;
+    	cursor: pointer;
+		background: transparent;
+		order: 1;
+		margin-left: 0;
+		@media only screen and (min-width: 769px) {
+			margin-left: auto;
+			margin-right: 1.5rem;
+			order: 0;
+			transition: all .3s linear;
+		}
+		@media only screen and (min-width: 1025px) {
+			opacity: 0;
+		}
+		svg {
+			font-size: inherit;
+		}
+	}
+	&__nav-toggle-icon {
+		display: inline-block;
+		border: 0.15rem solid colors.fs-color(brand-secondary);
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+		line-height: 1.5;
+		font-size: 1.3rem;
+		margin-left: 0.25rem;
+		box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-secondary);
+		transition: all .1s;
+	}
+	
+	&__navbar-donate,
+	&__navbar-search {
+		@extend .bc-button;
+		@include typography.fs-font-size(body-small);
+		line-height: 1.5rem;
+		margin-right: 1.75rem;
+		display: none;
+		@media only screen and (min-width: 769px) {
+			display: block;
+		}
+	}
+	&__navbar-donate {
+		color: colors.fs-color(brand-primary);
+		border-color: colors.fs-color(brand-primary);
+		box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-primary);
+	}
+	&__navbar-search {
+		color: colors.fs-color(brand-secondary);
+		border-color: colors.fs-color(brand-secondary);
+		box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-secondary);
+	}
+	&__navbar-account,
+	&__navbar-user,
+	&__navbar-cart {
+		@include typography.fs-font-stack(sans, $weight: 700);
+		background: transparent;
+		border: none;
+		color: colors.fs-color(brand-secondary);
+		margin-right: 1.75rem;
+		display: none;
+		font-size: 0;
+		transition: all .1s;
+		opacity: 1;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		@media only screen and (min-width: 769px) {
+			display: block;
+		}
+		@media only screen and (min-width: 1025px) {
+			font-size: 16px;
+			display: block;
+			transition: all .3s linear;
+		}
+		svg {
+			font-size: initial;
+		}
+	}
+	&__navbar-cart {
+		margin-right: 0;
+		display: block;
+		margin-right: 1rem;
+		margin-left: auto;
+		@media only screen and (min-width: 769px) {
+			margin: 0;
+		}
+	}
+}
+
+
+// Header Main/Mobile Nav
+.bc-header {
+	&__main-menu-container {
+		position: fixed;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 26rem;
+		max-width: 100%;
+		background: colors.fs-color(white);
+		padding: 1rem;
+		padding-left: 2rem;
+		z-index: 2000;
+		transform: translate(150%, 0);
+		transition: all .2s;
+		border-left: 0.15rem solid colors.fs-color(black);
+		&.active {
+			transform: translate(0,0);
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+	}
+	&__main-menu {
+		display: flex;
+		flex-direction: column;
+		padding-left: 0;
+		margin-bottom: 0;
+		list-style: none;
+		overflow-y: scroll;
+		box-sizing: content-box;
+		width: 100%;
+		padding-right: 34px;
+		
+		> .bc-header__menu-item {
+			margin-bottom: 1rem;
+			display: block;
+			max-width: 100%;
+			// TODO: Review the below styles
+			@include typography.fs-font-stack(sans, $weight: 700);
+			position: relative;
+			background: colors.fs-color(white);
+			border: 0.15rem solid;
+			padding: 0.25rem 1rem;
+			transition: all .1s;
+			text-decoration: none!important;
+			> a {
+				display: flex;
+				font-size: 1.5rem !important;
+				position: relative;
+			}
+			a {
+				@include typography.fs-font-size(body-small);
+			}
+			&.menu-item--blue {
+				color: colors.fs-color(brand-primary);
+				border-color: colors.fs-color(brand-primary);
+				box-shadow: 0.5rem 0.5rem 0 colors.fs-color(brand-primary);
+				a {
+					color: colors.fs-color(brand-primary);
+				}
+			}
+			&.menu-item--teal {
+				color: colors.fs-color(outline);
+				border-color: colors.fs-color(outline);
+				box-shadow: 0.5rem 0.5rem 0 colors.fs-color(outline);
+				a {
+					color: colors.fs-color(outline);
+				}
+			}
+			&.menu-item--indigo {
+				color: #5585c4;
+				border-color: #5585c4;
+				box-shadow: 0.5rem 0.5rem 0 #5585c4;
+				a {
+					color: #5585c4;
+				}
+			}
+			&.menu-item--orange {
+				color: #e64619;
+				border-color: #e64619;
+				box-shadow: 0.5rem 0.5rem 0 #e64619;
+				a {
+					color: #e64619;
+				}
+			}
+			&.menu-item--red {
+				color: colors.fs-color(brand-secondary);
+				border-color: colors.fs-color(brand-secondary);
+				box-shadow: 0.5rem 0.5rem 0 colors.fs-color(brand-secondary);
+				a {
+					color: colors.fs-color(brand-secondary);
+				}
+			}
+			&.menu-item--pink {
+				color: #bb0c7b;
+				border-color: #bb0c7b;
+				box-shadow: 0.5rem 0.5rem 0 #bb0c7b;
+				a {
+					color: #bb0c7b;
+				}
+			}
+		}
+		.bc-header__navbar-search {
+			align-items: center;
+			border: none;
+			padding: 0;
+			box-shadow: none;
+			margin-right: 0;
+			line-height: 1.5;
+			svg {
+				margin-left: auto;
+			}
+		}
+		.bc-header__navbar-account,
+		.bc-header__navbar-user {
+			@include typography.fs-font-stack(sans, $weight: 700);
+			@include typography.fs-font-size(body-small);
+			color: colors.fs-color(brand-secondary);
+			background: transparent;
+			border: none;
+			display: block;
+			background: transparent;
+			border: none;
+		}
+	}
+	&__menu-item-has-children {
+		position: relative;
+		svg {
+			transition: all .3s linear;
+		}	
+		&.active {
+			svg {
+				transform: rotate(135deg);
+			}
+		}
+		ul {
+			display: none;
+  			overflow: hidden;
+			list-style-type: none;
+			padding-top: 0.5rem;
+			padding-bottom: 1rem;
+			transition: all .1s;
+			&.active {
+				display: block;
+			}
+		}
+	}
+	&__menu-item-toggle {
+		margin-left: auto;
+	}
+	&__nav-close {
+		@include typography.fs-font-stack(sans, $weight: 700);
+		color: colors.fs-color(brand-secondary);
+		background: transparent;
+		border: none;
+		padding: 0;
+		text-transform: uppercase;
+		outline: 0;
+		transition: padding .1s;
+		cursor: pointer;
+	}
+	.bc-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 100;
+		opacity: 0;
+		visibility: hidden;
+		background: rgba(0, 0, 0, 0.65);
+		transition: all 0.35s ease;
+		
+		&.active {
+			display: block;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+// / Header Main/Mobile Nav - Share
+.bc-header {
+	&__share-flyout {
+		display: flex;
+		float: left;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 0;
+		overflow: hidden;
+		line-height: 2;
+  		transition: all .5s ease-in-out;
+		&.active {
+			height: 2rem;
+		}
+	}
+	&__share-flyout-close {
+		background: transparent;
+		color: colors.fs-color(brand-secondary);
+		padding: 0;
+		border: none;
+		font-size: 1.25rem;
+		margin-right: 1rem;
+		cursor: pointer;
+		float: left;
+		outline: 0;
+		svg {
+			position: relative;
+			top: 0;
+			font-size: 1.25rem;
+		}
+	}
+	&__social-icons-container {
+		float: left;
+	}
+	&__social-icon {
+		display: block;
+		float: left;
+		cursor: pointer;
+		border: 0.15rem solid colors.fs-color(brand-secondary);
+		border-radius: 100%;
+		margin-right: 0.25rem;
+		height: 2rem;
+		width: 2rem;
+		position: relative;
+		color: colors.fs-color(brand-secondary);
+		transition: all .3s linear;
+		svg {
+			@include typography.fs-font-size(body-small);
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+}

@@ -1,0 +1,88 @@
+{% from 'icon/macro.njk' import bcIcon %}
+
+<table
+    data-module="bc-table"
+    class="bc-table {%- if params.classes %} {{ params.classes }}{% endif %}"
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+>
+    {%- if params.caption %}
+        <caption class="bc-table__caption">
+            {{ params.caption }}
+        </caption>
+    {%- endif %}
+    {%- if params.head %}
+        <thead class="bc-table__head">
+            <tr>
+                {%- for cell in params.head %}
+                    <th
+                        class="bc-table__header {%- if cell.format %} bc-table__header--{{ cell.format }}{% endif %} {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+                        scope="col"
+                        {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+                        {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
+                        {%- for attribute, value in cell.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+                    >
+                        {{ (cell.html | safe) if cell.html else cell.text }}
+                    </th>
+                {%- endfor %}
+            </tr>
+        </thead>
+    {%- endif %}
+    {%- if params.body %}
+        <tbody class="bc-table__body">
+            {%- for row in params.body %}
+                <tr>
+                    {%- for cell in row %}
+                        {%- set commonAttributes %}
+                            {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+                            {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
+                            {%- for attribute, value in cell.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+                        {% endset %}
+                        {%- if loop.first and params.firstCellIsHeader %}
+                            <th
+                                class="bc-table__header {%- if cell.format %} bc-table__header--{{ cell.format }}{% endif %}"
+                                scope="row"
+                                {{- commonAttributes | safe -}}>
+                                {{ (cell.html | safe) if cell.html else cell.text }}
+                            </th>
+                        {%- else %}
+                            <td
+                                class="bc-table__cell {%- if cell.format %} bc-table__cell--{{ cell.format }}{% endif %}"
+                                {{- commonAttributes | safe -}}>
+                                {{ (cell.html | safe) if cell.html else cell.text }}
+                            </td>
+                        {%- endif %}
+                    {%- endfor %}
+                </tr>
+            {%- endfor %}
+        </tbody>
+    {%- endif %}
+    {%- if params.foot %}
+        <tfoot class="bc-table__foot">
+            {%- for row in params.foot %}
+                <tr>
+                    {%- for cell in row %}
+                        {%- set commonAttributes %}
+                            {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+                            {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
+                            {%- for attribute, value in cell.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+                        {% endset %}
+                        {%- if loop.first and params.firstCellIsHeader %}
+                            <th
+                                class="bc-table__header {%- if cell.format %} bc-table__header--{{ cell.format }}{% endif %}"
+                                scope="row"
+                                {{- commonAttributes | safe -}}>
+                                {{ (cell.html | safe) if cell.html else cell.text }}
+                            </th>
+                        {%- else %}
+                            <td
+                                class="bc-table__cell {%- if cell.format %} bc-table__cell--{{ cell.format }}{% endif %}"
+                                {{- commonAttributes | safe -}}>
+                                {{ (cell.html | safe) if cell.html else cell.text }}
+                            </td>
+                        {%- endif %}
+                    {%- endfor %}
+                </tr>
+            {%- endfor %}
+        </tfoot>
+    {%- endif %}
+</table>

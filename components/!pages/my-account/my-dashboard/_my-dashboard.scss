@@ -1,0 +1,15 @@
+@use "helpers/colors";
+
+.ip-dashboard {
+    .bc-card--donate {
+        .bc-card__body {
+            flex-direction: column;
+        }
+    }
+    &__event-section {
+        .bc-button {
+            margin-top: 2.35rem;
+            
+        }
+    }
+}

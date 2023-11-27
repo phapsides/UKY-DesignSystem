@@ -1,0 +1,225 @@
+@use "brand";
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/reset";
+@use "helpers/typography";
+@use "helpers/measurements";
+@use "helpers/media-queries";
+@use "objects/forms";
+@use "core/webfonts";
+@use "button/button";
+@use "checkbox/checkbox";
+@use "form/form";
+@use "heading/heading";
+@use "input/input";
+@use "objects/lists";
+
+body {
+	@include typography.fs-typography-common;
+	@include typography.fs-font-stack(serif);
+	@include typography.fs-font-size(body);
+	margin: 0;
+	color: settings.$fs-text-color;
+	background-color: settings.$fs-body-background-color;
+}
+
+
+.it-sso {
+	&__backdrop {
+		width: 100%;
+		height: auto;
+		position: relative;
+		top: 0;
+		left: 0;
+		@include media-queries.fs-mq($from: tablet) {
+			width: 50%;
+			height: 100%;
+			position: fixed;
+			left: 50%;
+		}
+	}
+	&__background {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+		@include media-queries.fs-mq($from: tablet) {
+			position: absolute;
+		}
+	}
+	&__inner {
+		width: 100%;
+		position: relative;
+		z-index: 1;
+		max-width: none;
+		min-height: 0;
+		@include media-queries.fs-mq($from: tablet) {
+			max-width: 50%;
+			min-height: 100vh;
+		}
+	}
+	&__primary {
+		padding: 8vh 12vw;
+	}
+	&__body {
+		max-width: 20rem;
+		ul {
+			@extend .fs-list;
+		}
+		dl {
+			@extend .fs-list;
+			&.bc-list--dashed {
+				> dd {
+					margin-left: 0;
+					&:before {
+						content: "-";
+						display: inline-block;
+						margin: 0 0 0 - (settings.$fs-gutter-half);
+						margin-right: 0.5rem;
+					}
+				}
+			}
+		}
+		.helpLink,
+		.rememberMe,
+		.divider {
+			display: none !important;
+		}
+		.TextBox,
+		.Password,
+		.entry-item,
+		.password,
+		#forgotPassword {
+			@extend .bc-form-row;
+		}
+	}
+	label {
+		@extend .bc-label;
+	}
+	input[type="text"],
+	input[type="email"],
+	input[type="password"] {
+		@extend .bc-input;
+		&::placeholder {
+			color: transparent;
+		}
+	}
+	button {
+		@extend .bc-button;
+		margin-top: 2rem;
+		cursor: pointer;
+		// Primary Button styles
+		&#continue,
+		&#next {
+			color: colors.fs-color(brand-secondary);
+			border-color: colors.fs-color(brand-secondary);
+			box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-secondary);
+			margin-right: 0.35rem;
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 0 colors.fs-color(brand-secondary);
+			}
+		}
+		// Secondary Button styles
+		&.sendButton {
+			color: colors.fs-color(brand-primary);
+			border-color: colors.fs-color(brand-primary);
+			box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-primary);
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 0 colors.fs-color(brand-primary);
+			}
+		}
+	}
+	#cancel {
+		background: transparent;
+	}
+	
+	#cancel,
+	#forgotPassword {
+		color: colors.fs-color(link);
+		margin: 0;
+		font-weight: 700;
+		border: none;
+		padding: 0.25rem 1rem;
+		text-decoration: underline;
+		&:hover {
+			color: colors.fs-color(link-hover);
+		}
+	}
+	// Hide the original instance
+	.password-label {
+		#forgotPassword {
+			display: none;
+		}
+	}
+	.error {
+		p {
+			@extend .bc-error;
+			margin: 0 0 0.5rem;
+		}
+	}
+	.verificationInfoText {
+		@extend .bc-error;	
+		margin-bottom: 2rem;
+	}
+	#forgotPassword {
+		padding: 0.25rem 0;
+		margin-top: settings.$fs-gutter-half;
+	}
+	.intro {
+		margin-bottom: settings.$fs-gutter;
+		p,
+		h2 {
+			@extend .bc-heading--jumbotron;
+		}
+	}
+	.entry {
+		margin-bottom: settings.$fs-gutter-half;
+		@include media-queries.fs-mq($from: tablet) {
+			margin-bottom: settings.$fs-gutter;
+		}
+	}
+	.create {
+		background: colors.fs-color(white);
+		padding: 1.5rem 0 1.5rem 1.5rem;
+		width: 100%;
+		max-width: 341px;
+		margin-top: 3.5rem;
+	}
+	.create,
+	.have {
+		p {
+			font-size: measurements.fs-px-to-rem(20px);
+			line-height: 1.8;
+			font-weight: 700;
+			color: colors.fs-color(brand-primary);
+			margin: 0;
+		}
+		#createAccount {
+			display: block;
+			color: colors.fs-color(link);
+			font-weight: 700;
+			margin: 0;
+			&:hover {
+				color: colors.fs-color(link-hover);
+			}
+		}
+	}
+	.have {
+		margin-top: 3.5rem;
+		#haveAccount {
+			color: colors.fs-color(link);
+			margin: 0;
+			font-weight: 700;
+			border: none;
+			padding: 0 0.25rem;
+			text-decoration: underline;
+			&:hover {
+				color: colors.fs-color(link-hover);
+			}
+		}
+	}
+}

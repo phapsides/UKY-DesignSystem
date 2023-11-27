@@ -1,0 +1,46 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "objects/forms";
+@use "helpers/media-queries";
+
+.bc-available-grants-card {
+    background: colors.fs-color(brand-primary);
+    padding: 2.25rem;
+    color: colors.fs-color(white);
+    &__header {
+        display: flex;
+        margin-bottom: 2.25rem;
+    }
+    &__reference {
+        margin-top: 0;
+    }
+    &__date {
+        margin-left: auto;
+        align-self: flex-end;
+    }
+    &__body {
+        margin-bottom: 2.25rem;
+    }
+    &__cta {
+        display: flex;
+        justify-content: start;
+        margin-right: 0.35rem;
+        margin-bottom: 0.35rem;
+        @include media-queries.fs-mq($from: tablet) {
+            justify-content: end;
+        }
+    }
+    &__label {
+        @extend .bc-label;
+        color: colors.fs-color(white);
+    }
+    .bc-heading {
+        color: colors.fs-color(white);
+    }
+    .bc-label {
+        margin-bottom: 0.25rem;
+    }
+    p {
+        margin: 0;
+    }
+}

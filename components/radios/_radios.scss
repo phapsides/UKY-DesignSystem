@@ -1,0 +1,46 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/forms";
+@use "helpers/colors";
+@use "sass:math";
+
+.bc-radios {
+	$self: &;
+	$input-size: 1.25rem;
+	$input-line-height: 1.875rem;
+	$target-size: 44px;
+	&__item {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+	&__input {
+		@include forms.bc-radio(
+			$visual-size: $input-size,
+			$target-size: $target-size
+		);
+		&:checked {
+			&:not(:disabled) {
+				&:before {
+					background: settings.$fs-body-background-color;
+				}
+			}
+			&::after {
+				background: colors.fs-color(brand-primary);
+				height: 0.5rem;
+				width: 0.5rem;
+			}
+		}
+		&:focus {
+			&::before {
+				outline: 3.5px solid colors.fs-color(outline);
+				outline-offset: 0;
+			}
+		}
+	}
+	&__label {
+		display: inline-block;
+		padding-block-start: calc((#{$target-size} - #{$input-line-height}) / 2);
+		color: colors.fs-color(black);
+	}
+}

@@ -1,0 +1,388 @@
+{% extends '@t-centered' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "form/macro.njk" import bcForm %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from 'icon/macro.njk' import bcIcon %}
+
+	<div class="ip-forms-framework">
+		<div data-module="bc-step-indicator" class="bc-step-indicator">
+			<div class="bc-step-indicator__step" aria-current="step">
+				<div class="bc-step-indicator__step-number">
+					1
+				</div>
+				<div class="bc-step-indicator__body">
+					<p><strong>Step 1</strong></p>
+					<p>Step name</p>
+				</div> 
+			</div>
+			<div class="bc-step-indicator__line"></div>
+			<div class="bc-step-indicator__step">
+				<div class="bc-step-indicator__step-number">2</div>
+				<div class="bc-step-indicator__body">
+					<p><strong>Step 2</strong></p>
+					<p>Step name</p>
+				</div> 
+			</div>
+			<div class="bc-step-indicator__line"></div>
+			<div class="bc-step-indicator__step">
+				<div class="bc-step-indicator__step-number">3</div>
+				<div class="bc-step-indicator__body">
+					<p><strong>Step 3</strong></p>
+					<p>Step name</p>
+				</div> 
+			</div>
+			<div class="bc-step-indicator__line"></div>
+			<div class="bc-step-indicator__step">
+				<div class="bc-step-indicator__step-number">4</div>
+				<div class="bc-step-indicator__body">
+					<p><strong>Step 4</strong></p>
+					<p>Step name</p>
+				</div> 
+			</div>
+		</div>   
+				
+		{% call bcForm({
+			classes: 'fs-!-margin-top-8',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+			<input data-val="true" data-val-required="The FormId field is required." id="FormId" name="FormId" type="hidden" value="712c127a-765f-424d-b1d7-21d82f6606fa"><input id="FormName" name="FormName" type="hidden" value="Sample Form"><input data-val="true" data-val-required="The RecordId field is required." id="RecordId" name="RecordId" type="hidden" value="00000000-0000-0000-0000-000000000000"><input id="PreviousClicked" name="PreviousClicked" type="hidden" value=""><input id="Theme" name="Theme" type="hidden" value="CRM">            <input type="hidden" id="PartialSaveClicked" name="PartialSaveClicked">
+			<input type="hidden" id="__addChildRecord" name="__addChildRecord">
+			<input type="hidden" id="__editChildRecord" name="__editChildRecord">
+			<input type="hidden" name="FormStep" value="0">
+			<input type="hidden" name="RecordState" value="Q2ZESjhKcThmdjEzSGlWSHVfU2ZPcDlibDVyMm1hd2VhUDNBcDhmSE96czU1R2JOQ0FHbnJzOV9DRlFoYXV3RXYwTVVKdjNIX0MxWXpmeWw4UXkxLV9KLXgxaWpwV2ZZN0xOMVFCNjQyeGZ6d3JlMkhEbkRnTm9BaV96ZndDT3FQc0ZVejZNTkhnTTcyQnJEWXc0YjE4V2Q4ZjQwdlVkcnpDRjd3UEpJY01lZEQwMzllQnVaVVFxeUwtdkhrRnBka0lsMUNZTHA2R2xnWi12eHdBUF9peWdpWUJBLWNiOUhBcDJ0RUlCcXFtVkIxQlZnYUNSNUo1dmVoRDBmNzlCUTlZamxKZS1LYmpvREY1blJ1UHV2bldFRThjZERoc1QtV3psaHBLRUhXMEJDNGNweGtSTGNNemxPc3lUUnJKWlhwVGxfaWhTNWpubjFJdF83OHJMQzJyVkFZYWVXek9NdUZlM2d3T2g2cEdSVVFNVV91cW4zRnBGQXhmdHNWWGQ3dUpTRUJYXzlxTG5VUERKUjBIeW0yLW1YeWwyZmIzUFg2djRyVzFXZWljUFRTUmtaYjVQa3p2bndaS2swU25fbU9aYkVGRjFnMmJQWGdqN29PdjRxX0FGSzRDUVNKNU1ORHNscE05Zl9GcUtSTTExVUd3a1M5emRUV3hvZXowQ1FzbVliS1BMQWJfelZFaVhtT2VNaTRYSDVBNVZMNHdZQUMwVFRCZHpmRDdsdFRwWElmN1Q4ZEt6ekJVZUloVGhERFpBOWx5VFhlNjN0RGJJLWlTeEFNVnRmUkkzSUx4bmo0TEI1M3hGanlCLWloOGR0OG8xaUNna0hEWEhBdTY2WlVyZjVaT19UVTlGU3plSk5Gek9BTWVVbTNoTUlSSVVDSjhURWcyV0pnUkl4S2JkWU9nSVNwaE9XNnZXWDB4VEJLMXJFb0hnRThiZGJNOEhCUkpfbVhBTzhHM2lDTTFDR1RGSTVDQ1lkZzhGYjNiWG5ESXpsLUV2bjVtZjJrLVA4bVpCU3UwcHhVMWxRZEExek9pUzRfeThOOVFmV1JtdlNSWEFrYjQ2Nlg3UzZ2RFVLRTA3U184TVh3SDNJUGFCczR6RDlSaTI3cThLTElGeDRjeUk1eER2bE0tZnRtMnpwdVpSQ1JHTmVCM3MzWWVhYUdBZTZnQUFnM281eUxyeFc4UWN2RktreU56QTRiMTQxSjZwUURtRGpCS1o4ZXNVdUJpZTMyZVdUdlU3VXhpVmVES0pvTTJROS1tMTN6NF81a21WaGN0Q0RyZm5ZOFpScXVUYW1JaEljdkZz">
+			<div class="umbraco-forms-page" id="9cf96c10-b541-4498-9b74-d7b717a41abc">
+				<h4 class="umbraco-forms-caption">Page 1</h4>
+				<fieldset class="umbraco-forms-fieldset" id="0d347af8-188c-4800-b65f-b8584de8d2d4">
+					<legend>Group AAA</legend>
+					<div class="row-fluid">
+						<div class="umbraco-forms-container col-md-12">
+						<div class="bc-form-row  umbraco-forms-field textbox shortanswer mandatory">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="96a243cb-b314-4dec-cb3c-622d3cdcdd07" class="bc-label">Textbox</label>
+								<form-hint></form-hint>
+								<input type="text" name="96a243cb-b314-4dec-cb3c-622d3cdcdd07" id="96a243cb-b314-4dec-cb3c-622d3cdcdd07" data-umb="96a243cb-b314-4dec-cb3c-622d3cdcdd07" class="bc-input " value="sda" maxlength="255" placeholder="your name..." data-val="true" data-val-required="Please specify name">
+								<span class="field-validation-valid" data-valmsg-for="96a243cb-b314-4dec-cb3c-622d3cdcdd07" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field textarea longanswer alternating">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="5f7c5dd8-0270-4399-8dd0-ed3c7e63309c" class="bc-label">Textarea<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<textarea class="bc-input bc-input--textarea " name="5f7c5dd8-0270-4399-8dd0-ed3c7e63309c" id="5f7c5dd8-0270-4399-8dd0-ed3c7e63309c" data-umb="5f7c5dd8-0270-4399-8dd0-ed3c7e63309c" rows="6" cols="20">sad</textarea>
+								<span class="field-validation-valid" data-valmsg-for="5f7c5dd8-0270-4399-8dd0-ed3c7e63309c" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field date date">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="0981f956-26a8-4eea-caa0-6831e3f55e07" class="bc-label">Date<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<input type="hidden" name="0981f956-26a8-4eea-caa0-6831e3f55e07" id="0981f956-26a8-4eea-caa0-6831e3f55e07" class="datepickerfieldshadow" value="20 May 2022" data-umb="0981f956-26a8-4eea-caa0-6831e3f55e07">
+								<input type="text" name="0981f956-26a8-4eea-caa0-6831e3f55e07" id="0981f956-26a8-4eea-caa0-6831e3f55e07_1" class="bc-input datepickerfield" autocomplete="off" value="20 May 2022">
+								<span class="field-validation-valid" data-valmsg-for="0981f956-26a8-4eea-caa0-6831e3f55e07" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field checkbox checkbox alternating">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="6ece320e-137e-4b7d-f871-60f8805a6d4e" class="bc-label">Checkbox<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<div data-module="bc-checkbox" class="bc-checkbox">
+									<div class="bc-checkbox__item">
+									<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input" name="6ece320e-137e-4b7d-f871-60f8805a6d4e" id="6ece320e-137e-4b7d-f871-60f8805a6d4e" value="true" data-val-placement-after="legend_6ece320e-137e-4b7d-f871-60f8805a6d4e">
+									</div>
+								</div>
+								<input type="hidden" name="6ece320e-137e-4b7d-f871-60f8805a6d4e" value="false">
+								<span class="field-validation-valid" data-valmsg-for="6ece320e-137e-4b7d-f871-60f8805a6d4e" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field fileupload crmsharepointupload">
+							<div class="umbraco-forms-field-wrapper">
+								<div class="umbraco-form__row  umbraco-forms-field fileupload crmsharepointupload">
+									<label class="umbraco-form__label" for="f9df6cbd-7102-4647-99c1-590697ed0c17">
+									File upload
+									<small>(optional)</small>
+									</label>
+									<span class="field-validation-valid umbraco-form__error" data-valmsg-for="f9df6cbd-7102-4647-99c1-590697ed0c17" data-valmsg-replace="true"></span>
+									<input class="input " type="file" name="f9df6cbd-7102-4647-99c1-590697ed0c17" id="f9df6cbd-7102-4647-99c1-590697ed0c17" multiple="">
+								</div>
+								<span class="field-validation-valid" data-valmsg-for="f9df6cbd-7102-4647-99c1-590697ed0c17" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field checkboxlist multiplechoice mandatory alternating">
+							<div class="umbraco-forms-field-wrapper">
+								<fieldset class="bc-fieldset" id="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" data-umb="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82">
+									<legend class="bc-fieldset__legend">
+									<label for="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" class="bc-label">Checkbox list</label>
+									</legend>
+									<form-hint></form-hint>
+									<div data-module="bc-checkbox" class="bc-checkbox checkboxlist">
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" id="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82_0" value="0" data-val-placement-after="legend_bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" data-val="true" data-rule-required="true" data-msg-required="Please provide a value for Checkbox list" checked="checked">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82_0">
+											AAA
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" id="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82_1" value="0" data-val-placement-after="legend_bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" data-val="true" data-rule-required="true" data-msg-required="Please provide a value for Checkbox list" checked="checked">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82_1">
+											BBB
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" id="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82_2" value="0" data-val-placement-after="legend_bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" data-val="true" data-rule-required="true" data-msg-required="Please provide a value for Checkbox list" checked="checked">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82_2">
+											CCC
+											</label>
+										</div>
+									</div>
+									</div>
+								</fieldset>
+								<span class="field-validation-error" data-valmsg-for="bd4c61f5-a19e-4b66-e1aa-87d8e979bb82" data-valmsg-replace="true">Unexpected value: '0'. Expected one of these: 'AAA', 'BBB', 'CCC'</span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field dropdown dropdown">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="1058b630-f9d4-4f56-da8e-9a8c3811fc13" class="bc-label">Dropdown<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<div class="bc-select">
+									<select data-module="bc-select" class="bc-select__input " name="1058b630-f9d4-4f56-da8e-9a8c3811fc13" id="1058b630-f9d4-4f56-da8e-9a8c3811fc13" data-umb="1058b630-f9d4-4f56-da8e-9a8c3811fc13">
+									<option value=""></option>
+									<option value="AAA">AAA</option>
+									<option value="BBB" selected="">BBB</option>
+									<option value="CCC">CCC</option>
+									<option value="DDD">DDD</option>
+									</select>
+								</div>
+								<span class="field-validation-valid" data-valmsg-for="1058b630-f9d4-4f56-da8e-9a8c3811fc13" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field radio singlechoice mandatory alternating">
+							<div class="umbraco-forms-field-wrapper">
+								<fieldset class="  radiobuttonlist bc-fieldset" id="c5d0626a-54b9-409a-f32c-1b2ef93caf19" data-umb="c5d0626a-54b9-409a-f32c-1b2ef93caf19">
+									<legend class="bc-fieldset__legend">
+									<label for="c5d0626a-54b9-409a-f32c-1b2ef93caf19" class="bc-label">Radio</label>
+									</legend>
+									<form-hint></form-hint>
+									<div data-module="bc-radios" class="bc-radios">
+									<div class="bc-radios__item">
+										<input type="radio" name="c5d0626a-54b9-409a-f32c-1b2ef93caf19" id="c5d0626a-54b9-409a-f32c-1b2ef93caf19_0" data-umb="c5d0626a-54b9-409a-f32c-1b2ef93caf19_0" class="bc-radios__input" value="AAA" data-val="true" data-val-required="Please provide a value for Radio" data-rule-required="true" data-msg-required="Please provide a value for Radio">
+										<div class="bc-radios__body">
+											<label class="bc-radios__label" for="c5d0626a-54b9-409a-f32c-1b2ef93caf19_0">AAA</label>
+										</div>
+									</div>
+									<div class="bc-radios__item">
+										<input type="radio" name="c5d0626a-54b9-409a-f32c-1b2ef93caf19" id="c5d0626a-54b9-409a-f32c-1b2ef93caf19_1" data-umb="c5d0626a-54b9-409a-f32c-1b2ef93caf19_1" class="bc-radios__input" value="BBB" data-val="true" data-val-required="Please provide a value for Radio" data-rule-required="true" data-msg-required="Please provide a value for Radio">
+										<div class="bc-radios__body">
+											<label class="bc-radios__label" for="c5d0626a-54b9-409a-f32c-1b2ef93caf19_1">BBB</label>
+										</div>
+									</div>
+									<div class="bc-radios__item">
+										<input type="radio" name="c5d0626a-54b9-409a-f32c-1b2ef93caf19" id="c5d0626a-54b9-409a-f32c-1b2ef93caf19_2" data-umb="c5d0626a-54b9-409a-f32c-1b2ef93caf19_2" class="bc-radios__input" value="CCC" data-val="true" data-val-required="Please provide a value for Radio" data-rule-required="true" data-msg-required="Please provide a value for Radio">
+										<div class="bc-radios__body">
+											<label class="bc-radios__label" for="c5d0626a-54b9-409a-f32c-1b2ef93caf19_2">CCC</label>
+										</div>
+									</div>
+									<div class="bc-radios__item">
+										<input type="radio" name="c5d0626a-54b9-409a-f32c-1b2ef93caf19" id="c5d0626a-54b9-409a-f32c-1b2ef93caf19_3" data-umb="c5d0626a-54b9-409a-f32c-1b2ef93caf19_3" class="bc-radios__input" value="DDD" data-val="true" data-val-required="Please provide a value for Radio" data-rule-required="true" data-msg-required="Please provide a value for Radio" checked="checked">
+										<div class="bc-radios__body">
+											<label class="bc-radios__label" for="c5d0626a-54b9-409a-f32c-1b2ef93caf19_3">DDD</label>
+										</div>
+									</div>
+									</div>
+								</fieldset>
+								<span class="field-validation-valid" data-valmsg-for="c5d0626a-54b9-409a-f32c-1b2ef93caf19" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field validateddate validateddate" style="">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="4027cba0-65d7-4046-e383-402fc8de6496" class="bc-label">Validated date<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<div>
+									<input type="date" name="4027cba0-65d7-4046-e383-402fc8de6496" id="4027cba0-65d7-4046-e383-402fc8de6496" class="bc-input " value="2022-05-20" placeholder="Select date..">
+								</div>
+								<span class="field-validation-valid" data-valmsg-for="4027cba0-65d7-4046-e383-402fc8de6496" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="umbraco-forms-fieldset" id="b4ec9f8f-1d45-463e-e6dd-114f66f70db1">
+					<legend>Group BBB - 3 columns</legend>
+					<div class="row-fluid">
+						<div class="umbraco-forms-container col-md-4">
+						<div class="bc-form-row  umbraco-forms-field crmlookup crmlookup alternating">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="d6c7baaa-5cd9-4492-b109-af94d6a4e91b" class="bc-label">CRM lookup<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<div class="bc-select">
+									<select id="d6c7baaa-5cd9-4492-b109-af94d6a4e91b" name="d6c7baaa-5cd9-4492-b109-af94d6a4e91b" class="crm-lookup-text select2-hidden-accessible" data-selected-value="" tabindex="-1" aria-hidden="true">
+									<option></option>
+									<option value="ede4f51b-ce72-ec11-8943-0022481ad477">Acc 1451</option>
+									<option value="f4081ae0-057d-ec11-8d21-0022481aa902">Bear Associates</option>
+									</select>
+									<span class="select2 select2-container select2-container--default" dir="ltr" style="width: 50%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-d6c7baaa-5cd9-4492-b109-af94d6a4e91b-container"><span class="select2-selection__rendered" id="select2-d6c7baaa-5cd9-4492-b109-af94d6a4e91b-container"><span class="select2-selection__placeholder">Type or select an option</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+								</div>
+								<span class="field-validation-valid" data-valmsg-for="d6c7baaa-5cd9-4492-b109-af94d6a4e91b" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						<div class="bc-form-row  umbraco-forms-field textboxcol1 shortanswer">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="e9a5755b-24c9-44a1-a3d2-113e4aab245b" class="bc-label">Textbox - col 1<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<input type="text" name="e9a5755b-24c9-44a1-a3d2-113e4aab245b" id="e9a5755b-24c9-44a1-a3d2-113e4aab245b" data-umb="e9a5755b-24c9-44a1-a3d2-113e4aab245b" class="bc-input " value="" maxlength="255">
+								<span class="field-validation-valid" data-valmsg-for="e9a5755b-24c9-44a1-a3d2-113e4aab245b" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						</div>
+						<div class="umbraco-forms-container col-md-4">
+						<div class="bc-form-row  umbraco-forms-field crmoptionset crmoptionset alternating">
+							<div class="umbraco-forms-field-wrapper">
+								<label for="2ad169a0-bedd-4aef-d8b5-8584e7bd5024" class="bc-label">CRM OptionSet<span class="bc-label__optional">(optional)</span></label>
+								<div class="bc-hint"></div>
+								<div class="bc-select">
+									<select id="2ad169a0-bedd-4aef-d8b5-8584e7bd5024" data-module="bc-select" class="bc-select__input crm-optionset " name="2ad169a0-bedd-4aef-d8b5-8584e7bd5024">
+									<option value="">Select an option</option>
+									<option value="844060000">Household</option>
+									<option value="844060001">Organization</option>
+									</select>
+								</div>
+								<span class="field-validation-valid" data-valmsg-for="2ad169a0-bedd-4aef-d8b5-8584e7bd5024" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						</div>
+						<div class="umbraco-forms-container col-md-4">
+						<div class="bc-form-row  umbraco-forms-field crmmultiselect crmmultiselectoptionset">
+							<div class="umbraco-forms-field-wrapper">
+								<fieldset class="bc-fieldset" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75">
+									<input type="hidden" name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_0" value="">
+									<legend class="bc-fieldset__legend">
+									<label for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" class="bc-label">CRM MultiSelect<span class="bc-label__optional">(optional)</span></label>
+									</legend>
+									<div class="bc-hint"></div>
+									<div data-module="bc-checkbox" class="bc-checkbox">
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_0" value="844060000" data-val-placement-after="legend_cd3bf8e8-8983-47a4-f45a-50de5cc63c75">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_0">
+											Monday
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_1" value="844060001" data-val-placement-after="legend_cd3bf8e8-8983-47a4-f45a-50de5cc63c75">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_1">
+											Tuesday
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_2" value="844060002" data-val-placement-after="legend_cd3bf8e8-8983-47a4-f45a-50de5cc63c75">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_2">
+											Wednesday
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_3" value="844060003" data-val-placement-after="legend_cd3bf8e8-8983-47a4-f45a-50de5cc63c75" checked="checked">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_3">
+											Thursday
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_4" value="844060004" data-val-placement-after="legend_cd3bf8e8-8983-47a4-f45a-50de5cc63c75">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_4">
+											Friday
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_5" value="844060005" data-val-placement-after="legend_cd3bf8e8-8983-47a4-f45a-50de5cc63c75">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_5">
+											Saturday
+											</label>
+										</div>
+									</div>
+									<div class="bc-checkbox__item">
+										<input type="checkbox" data-module="bc-checkbox" class="bc-checkbox__input " name="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" id="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_6" value="844060006" data-val-placement-after="legend_cd3bf8e8-8983-47a4-f45a-50de5cc63c75">
+										<div class="bc-checkbox__body">
+											<label class="bc-checkbox__label" for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75_6">
+											Sunday
+											</label>
+										</div>
+									</div>
+									</div>
+								</fieldset>
+								<span class="field-validation-valid" data-valmsg-for="cd3bf8e8-8983-47a4-f45a-50de5cc63c75" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+						</div>
+					</div>
+				</fieldset>
+				<div style="display: none" aria-hidden="true">
+					<input type="text" name="712c127a765f424db1d721d82f6606fa">
+				</div>
+				<div class="umbraco-forms-navigation row-fluid">
+					<div class="col-md-12">            
+						<button data-module="bc-button" class="bc-button" data-appearance="secondary" type="submit" name="__savePartiallySubmitted" formnovalidate="">
+						<span class="bc-button__label">Save for later</span>
+						</button>
+						<button type="submit" class="btn next bc-button" data-appearance="primary" name="__next">
+						<span class="bc-button__label">Next</span>                       
+						</button>
+					</div>
+				</div>
+			</div>
+			<script type="application/javascript">
+				document.onreadystatechange = function () {
+				
+					if (document.readyState == "complete") {
+						var validationsDivs = document.querySelectorAll(".field-validation-error, .umbraco-forms-submitmessage");
+						var scrollY = 0;
+						for (var i = 0; i < validationsDivs.length; i++) {
+				
+							var node = getNode(validationsDivs[i]);
+							var offset = node.getBoundingClientRect().top;
+				
+							if (0 < offset && (offset < scrollY || scrollY === 0)) {
+								scrollY = offset;
+							}
+						
+				
+						if (scrollY > 0) {
+							window.scrollTo(0, scrollY);
+						}
+					}
+				}
+				
+				function getNode(node) {
+					var runner = node;
+					while (runner.tagName !== "BODY") {
+						if (runner.classList.contains("umbraco-forms-field")) {
+							return runner;
+						}
+				
+						runner = runner.parentNode;
+					}
+				
+					return node;
+				}
+			</script>
+			<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Jq8fv13HiVHu_SfOp9bl5ozZh0j6LCJ5CiGk3G1TjIxdGAc9VG8jqnNGg64UtrvkHE65-pP4hiNKGpC_awEqrLzn5Dh3RCpXGkALoMnz4jlJgE1XViFOFldR-hEg0ipXUAx7woJOghfUtSxBmd4YYM"><input name="ufprt" type="hidden" value="CfDJ8Jq8fv13HiVHu_SfOp9bl5pth5_Gs22-aDieYUzSNc6s_GI5pyZNF_xEhGbOt6UpuF2EWIKjGuIRO2EcaYQxMLb3SdUOd4gY72kQD6dMOGwH9FKeTay0Jv3tItzMJxX7zEVp44LQP1KrRSDu_wQQSeI5VYBcmJ2-GVcctMU0r4tS">
+		{% endcall %}
+	</div>
+
+{% endblock %}

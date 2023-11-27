@@ -1,0 +1,259 @@
+{% extends '@t-right-sidebar' %}
+
+{% block stepIndicator %}
+    {% from 'icon/macro.njk' import bcIcon %}
+    
+    <div data-module="bc-step-indicator" class="bc-step-indicator">
+        <div class="bc-step-indicator__step complete">
+            <div class="bc-step-indicator__step-number">
+                {{ bcIcon({
+                    variant: 'check'
+                }) }}
+            </div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 1</strong></p>
+                <p>Basket</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line complete"></div>
+        <div class="bc-step-indicator__step" aria-current="step">
+            <div class="bc-step-indicator__step-number">
+                2
+            </div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 2</strong></p>
+                <p>Billing</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line"></div>
+        <div class="bc-step-indicator__step">
+            <div class="bc-step-indicator__step-number">3</div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 3</strong></p>
+                <p>Gift aid</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line"></div>
+        <div class="bc-step-indicator__step">
+            <div class="bc-step-indicator__step-number">4</div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 4</strong></p>
+                <p>Payment</p>
+            </div> 
+        </div>
+    </div>   
+{% endblock %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "form/macro.njk" import bcForm %}
+	{% from "button/macro.njk" import bcButton %}
+    {% from "input/macro.njk" import bcInput %}
+    {% from "radios/macro.njk" import bcRadios %}
+    {% from "select/macro.njk" import bcSelect %}
+
+	<div class="ip-contact-information">
+
+        {{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Billing'
+		}) }}
+
+        {% call bcForm({
+            action: '',
+            method: '',
+            disableUnloadPrompt: true
+        }) %}
+            <div class="ip-contact-information__section">
+                {{ bcHeading({
+                    hierarchy: 2,
+                    text: 'Contact information'
+                }) }}
+                {{ bcInput({
+                    name: 'ExampleInput',
+                    label: { 
+                        text: 'First name' 
+                    },
+                    value: 'Michelle',
+                    required: true
+                }) }}
+                {{ bcInput({
+                    name: 'ExampleInput',
+                    label: { 
+                        text: 'Last name' 
+                    },
+                    value: 'Baker',
+                    required: true
+                }) }}
+                {{ bcInput({
+                    name: 'ExampleInput',
+                    label: { 
+                        text: 'Email address' 
+                    },
+                    value: 'michelle@baker.com',
+                    required: true
+                }) }}               
+            </div>
+            <div class="ip-contact-information__section fs-!-margin-top-6">
+                {{ bcHeading({
+                    hierarchy: 2,
+                    text: 'Billing information'
+                }) }}
+                {{ bcRadios({
+                    name: 'ShippingAddressSelection',
+                    options: [
+                        {
+                            text: 'Use default shipping addres',
+                            value: 'UseProfile',
+                            checked: true,
+                            hint: {
+                                text: '5 Station Rd, Cirencester, GL7 6GN, United Kingdom'
+                            },
+                            additionalLink: 'Go to my account to edit',
+                            additionalLinkUrl: '#'
+                        },
+                        {
+                            text: 'Use new address',
+                            value: '2'
+                        }
+                    ]
+                }) }}
+                <div id="ip-contact-information__new-address">
+                    {{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Address line 1' 
+						},
+						value: '5 Station Rd',
+						required: true
+					}) }}
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Address line 2' 
+						},
+						required: true
+					}) }}
+					<div class="bc-form-field-group">
+						{{ bcInput({
+							name: 'ExampleInput',
+							label: { 
+								text: 'City' 
+							},
+							value: '',
+							required: true
+						}) }}
+						{{ bcInput({
+							name: 'ExampleInput',
+							label: { 
+								text: 'Zip/postal code' 
+							},
+							value: '',
+							required: true
+						}) }}
+					</div>
+					{{ bcSelect({
+						classes: 'fs-!-margin-bottom-0',
+						name: "ExampleSelect",
+						label: { 
+							text: "Country" 
+						},
+						required: true,
+						options: [
+							{ value: "", text: "Please select" },
+							{ value: "UK", text: "United Kingdom", selected: true },
+							{ value: "Other", text: "Other" }
+						]
+					}) }}
+                </div>
+            </div>
+
+            <div class="bc-button-group fs-!-margin-top-10">
+                <a href="#" title="">Return to Basket</a>
+            
+                {{ bcButton({
+                    appearance: 'primary',
+                    type: 'submit',
+                    text: 'Continue to Gift Aid',
+                    attributes: { 
+                        'name': 'testName', 
+                        'value': 'testValue' 
+                    }
+                }) }}
+            </div>
+        {% endcall %}
+        
+	</div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {% from "cart/macro.njk" import bcCart %}
+    {% from "alert/macro.njk" import bcAlert %}
+
+	<div class="ip-contact-information__cart fs-!-padding-block-3 fs-!-padding-inline-2">
+        <div class="ip-contact-information__cart-items fs-!-margin-bottom-4">
+            {{ bcCart({
+                position: 'sidebar',
+                items: [
+                    { 
+                        name: 'UK Youth Fund Thriving Minds - Meet the Funder Application Webinar',
+                        details: 'One-off payment',
+                        price: '£30'
+                    },
+                    { 
+                        name: 'Monthly donation',
+                        details: 'Direct debit',
+                        price: '£5'
+                    }
+                ]
+            }) }}
+        </div>
+
+        <div class="ip-contact-information__cart-summary">
+            <p>Total</p>
+            <p class="ip-contact-information__total-amount">£35</p>
+        </div>
+	</div>
+
+    <div class="ip-contact-information__cart-notification fs-!-margin-top-5">
+        {% call bcAlert() %}
+            <p>Your basket contains a mix of one-off purchases and recurring payments. Payment details for these will be entered separately.</p>
+        {% endcall %}
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+
+        function newAddress() {
+            const $shippingRadios = document.querySelectorAll('input[type=radio][name="ShippingAddressSelection"]');
+            const $newShipAddressContainer = document.getElementById('ip-contact-information__new-address');
+
+            var $billingRadios = document.querySelectorAll('input[type=radio][name="BillingAddressSelection"]');
+            var $newBillAddressContainer = document.getElementById('ip-contact-information__new-address-billing');
+        
+            $shippingRadios.forEach(radio => radio.addEventListener('change', () =>
+                toggleContainer($newShipAddressContainer, radio.value)
+            ));
+
+            $billingRadios.forEach(radio => radio.addEventListener('change', () =>
+                toggleContainer($newBillAddressContainer, radio.value)
+            ));
+
+            function toggleContainer(container, radioValue) {
+                radioValue !== 'UseProfile' ? 
+                    container.style.display = 'block' : 
+                    container.style.display = 'none';
+            }
+        }
+        
+        window.addEventListener("DOMContentLoaded", () => {
+            newAddress();
+        })
+
+    </script>
+{% endblock %}
+

@@ -1,0 +1,43 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "objects/lists";
+@use "objects/forms";
+@use "helpers/colors";
+
+.bc-tab {
+	&__list {
+		@extend .fs-list;
+		display: flex;
+		flex-direction: row;
+		li + li {
+			margin-top: 0;
+		}
+	}
+	&__item {
+		position: relative;
+		z-index: 1;
+		padding: 0.75rem 3rem;
+		border: solid 2px colors.fs-color(brand-primary);
+  		background-color: colors.fs-color(white);
+
+		&--current {
+  			background-color: colors.fs-color(brand-primary);
+			.bc-tab__tab {
+				color: colors.fs-color(white) !important;
+			}
+		}
+	}
+	&__tab {
+		@extend .bc-label;
+		color: colors.fs-color(brand-primary) !important;
+		text-decoration: none;
+		margin: 0;
+	}
+	&__panel {
+		html.js & {
+			margin-bottom: 0;
+		}
+		&--hidden {
+			display: none;
+		}
+	}
+}

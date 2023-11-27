@@ -1,0 +1,58 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "heading/heading";
+
+.ip-contact-information {
+	&__cart {
+		background-color: colors.fs-color(white);
+	}
+	&__cart-summary {
+		@extend .bc-heading--subtitle;
+		display: flex;
+		p {
+			margin: 0;
+			&:last-of-type {
+				margin-left: auto;
+			}
+		}
+	}
+	&__total-amount {
+		color: colors.fs-color(black);
+	}
+	&__notification {
+		.bc-alert {
+			border: 0 none;
+			&__icon {
+				top: 0.25rem;
+				left: 0;
+			}
+			&__body {
+				padding-left: 2rem;
+			}
+		}
+	}
+	.bc-button-group {
+		display: flex;
+		.bc-button {
+			margin-left: auto;
+		}
+		a {
+			align-self: center;
+		}
+	}
+	.bc-radios__body {
+		.bc-hint {
+			margin-top: 0.5rem;
+			margin-bottom: 1rem;
+		}
+		a {
+			display: block;
+			margin-bottom: 2rem;
+		}
+	}
+	#ip-contact-information__new-address,
+	#ip-contact-information__new-address-billing {
+		display: none;
+	}
+}

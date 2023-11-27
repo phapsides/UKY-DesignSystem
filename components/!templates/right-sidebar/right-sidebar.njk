@@ -1,0 +1,50 @@
+{% extends '@chrome' %}
+
+
+{% block main %}
+ 
+    {% block beforeTemplate %}
+    
+    {% endblock %}
+
+    <div class="it-right-sidebar">
+        {% block navigation %}
+            
+        {% endblock %}
+        <div class="it-right-sidebar__inner">
+            <div class="bc-container">
+                {% block stepIndicator %}
+        
+                {% endblock %}
+                {% block beforeInner %}
+        
+                {% endblock %}
+                <div class="bc-container__inner">
+                    {% block inner %}
+                        <article class="it-right-sidebar__document">
+                            
+                            <main class="it-right-sidebar__body">
+                                
+                                {% block body %}
+                                    {# [body] #}
+                                {% endblock %}
+                            </main>
+                             <aside class="it-right-sidebar__sidebar">
+                                {% block sidebar %}
+                                    {# [sidebar] #}
+                                {% endblock %}
+                            </aside>
+                        </article>
+                    {% endblock %}
+                    {% block afterInner %}
+                    
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block afterTemplate %}
+    
+    {% endblock %}
+
+{% endblock %}

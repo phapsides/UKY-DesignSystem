@@ -1,0 +1,36 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+
+	<div class="ip-communication-preferences">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Contact us'
+		}) }}
+
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us', current: true }
+		]
+	}) }}
+
+{% endblock %}

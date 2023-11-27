@@ -1,0 +1,64 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "helpers/media-queries";
+
+.bc-footer {
+	background: colors.fs-color(text);
+	color: colors.fs-color(white);
+    position: relative;
+	.uky-logo {
+		width: 18.65rem;
+    	height: auto;
+	}
+	a:not(.btn) {
+		@include typography.fs-font-stack(serif, $weight: 500);
+		color: colors.fs-color(white);
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	&--small-copy {
+		font-size: 80%;	
+	}
+	&__socials-menu {
+		.bc-footer__menu-item {
+			display: inline;
+    		padding-right: 0.5rem;
+		}
+		a {
+			display: inline-block;
+			height: 2.5rem;
+			width: 2.5rem;
+			border-radius: 100%;
+			border: 0.15rem solid colors.fs-color(white);
+			position: relative;
+			transition: all .3s linear;
+		}
+		svg {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			font-size: 1.15rem;
+			transition: all .3s linear;
+		}
+	}
+	&__menu {
+		@include media-queries.fs-mq($from: tablet) {
+			text-align: right;
+		}
+		.bc-footer__menu-item {
+			display: inline;
+			&::after {
+				content: " | ";
+			}
+			&:last-of-type {
+				&::after {
+					content: "";
+				}
+			}
+		}
+	}
+}

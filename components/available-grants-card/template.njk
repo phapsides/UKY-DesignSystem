@@ -1,0 +1,34 @@
+{% from 'prose/macro.njk' import bcProse %}
+{% from 'heading/macro.njk' import bcHeading %}
+{% from 'button/macro.njk' import bcButton %}
+
+<div
+    data-module="bc-available-grants-card"
+    class="bc-available-grants-card {%- if params.classes %} {{ params.classes }}{% endif %}"
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+    <header class="bc-available-grants-card__header">
+        <div class="">
+            {%- if params.heading %}
+                {{ bcHeading(params.heading) }}
+            {%- endif %}
+            <p class="bc-available-grants-card__reference">Ref: {{ params.reference }}
+        </div>
+        <div class="bc-available-grants-card__date">
+            <p class="bc-available-grants-card__label" id="apply-by">Apply by</p>
+            <time aria-describedby="apply-by">05/06/2022</time>
+        </div>
+    </header>
+    {%- if caller %}
+        {% call bcProse({
+            classes: 'bc-available-grants-card__body'
+        }) %}
+            {{ caller() }}
+        {% endcall %}
+    {%- endif %}
+    <footer class="bc-available-grants-card__cta">
+        {{ bcButton({
+            appearance: 'primary',
+            text: 'Start your application'
+        }) }}
+    </footer>
+</div>

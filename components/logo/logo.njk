@@ -1,0 +1,13 @@
+{% from "logo/macro.njk" import bcLogo %}
+
+{{ bcLogo({
+    classes: 'uky-logo--navbar',
+    src: ('/images/UKYouth_Brand.png' | path),
+    alt: 'UK Youth Brand Logo'
+}) }}
+
+{{ bcLogo({
+    classes: 'uky-logo--footer',
+    src: ('/images/UKYouth_White.png' | path),
+    alt: 'UK Youth Footer Logo'
+}) }}

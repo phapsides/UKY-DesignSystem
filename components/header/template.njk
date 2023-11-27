@@ -1,0 +1,268 @@
+{% from "logo/macro.njk" import bcLogo %}
+{% from "button/macro.njk" import bcButton %}
+{% from 'icon/macro.njk' import bcIcon %}
+
+<header
+    data-module="bc-header"
+    class="bc-header {%- if params.classes %} {{ params.classes }}{% endif %}"
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+      
+   <a class="bc-header__logo-container" href="#" title="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5207.1 819.6"><defs><style>.svg-logo-2{fill:#1fb9e0}.svg-logo-3{fill:#2455a2}.svg-logo-5{fill:#e6461a}.svg-logo-6{fill:#c6124a}.svg-logo-7{fill:#bb0c7c}.svg-logo-8{fill:#eb6025}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path style="fill:none" d="M152.19 300.15 0 427.36l152.19-127.21z"/><path class="svg-logo-2" d="M.81 522q2.25 55.56 10.76 95.71a236.7 236.7 0 0 0 32.14 62.76 2.84 2.84 0 0 0 4.73-.13l102.47-165a8.57 8.57 0 0 0 1.28-4.49V300.16L0 427.36v52.72Q0 502 .81 522Z"/><path class="svg-logo-3" d="M643.33 11.92H496.81a2.83 2.83 0 0 0-2.81 2.83v221.34l.11 290.16c0 94.45-103.38 145.27-171 145.27-53.91 0-130.53-32.31-159.39-93.26a2.84 2.84 0 0 0-5-.3L74.58 713.41a2.83 2.83 0 0 0 .42 3.52c51.5 50.67 122 83.16 186.68 96.18a313.58 313.58 0 0 0 61.4 6.49 309.48 309.48 0 0 0 56.06-5.45c107-19.86 232-93.65 260.85-215.47q4.18-30.82 5.53-74.33.65-20.72.65-44.27V14.75a2.84 2.84 0 0 0-2.84-2.83Z"/><path d="M152.19 236.09V14.75a2.84 2.84 0 0 0-2.84-2.83H2.83A2.83 2.83 0 0 0 0 14.75v412.61l152.19-127.2Z" style="fill:#5685c4"/><path class="svg-logo-2" d="M1390.77 792.39 1096.9 399.93l-64.35 154.88L1199 793.28a8.51 8.51 0 0 0 7 3.64h182.5a2.83 2.83 0 0 0 2.27-4.53ZM1381.31 11.92h-123.2l-143.26 344.82 268.69-340.23a2.83 2.83 0 0 0-2.23-4.59Z"/><path class="svg-logo-3" d="M953.43 11.92H799a2.83 2.83 0 0 0-2.83 2.83v779.34a2.83 2.83 0 0 0 2.83 2.83h154.43a2.84 2.84 0 0 0 2.84-2.83V14.75a2.84 2.84 0 0 0-2.84-2.83ZM1195.59 11.92a8.51 8.51 0 0 0-6.68 3.24l-180.8 229.6A56.66 56.66 0 0 0 996 279.84v204.72a56.74 56.74 0 0 0 10.16 32.44l26.39 37.8 64.35-154.88a17 17 0 0 1 .27-20.73l17.71-22.42 143.23-344.85Z"/><path class="svg-logo-5" d="M2435 14.92h-182a8.5 8.5 0 0 0-7.24 4L2071.14 301l89.34 144.87L2437.33 19.3a2.84 2.84 0 0 0-2.33-4.38ZM2037.64 322.42 1930.84 412l40.84 62.92a8.56 8.56 0 0 1 1.37 4.63v314.54a2.83 2.83 0 0 0 2.83 2.83h147.32l17.09-42.21V491.27a8.48 8.48 0 0 0-1.27-4.46Z"/><path class="svg-logo-6" d="M2037.64 322.42 1953 185.24l.87.11L1851.3 19a8.51 8.51 0 0 0-7.24-4h-165.67a2.83 2.83 0 0 0-2.39 4.3L1930.84 412l106.8-89.53Z"/><path class="svg-logo-7" d="M2642.4 549.73a232.62 232.62 0 0 1-41.51-78.44l-115.64 101.15q27.12 58.59 74.36 109.11a2.09 2.09 0 0 0 3.3-.33L2642.6 553a2.83 2.83 0 0 0-.2-3.27ZM3109.11 117.05a425.12 425.12 0 0 0-51.45-45.27l-122.29 107q39.74 17.63 73.37 50.67 72 70.79 72 172.56 0 100.84-71 170.68t-172.33 69.83q-96.3 0-163-59.06a2.84 2.84 0 0 0-4.3.61l-78.01 125.44a2.84 2.84 0 0 0 .57 3.66q102 87 245.62 87 160.11 0 272.33-115.49t112.24-282.25q0-168.34-113.75-285.38Z"/><path class="svg-logo-8" d="M2137.45 796.92a2.84 2.84 0 0 0 2.84-2.83v-39.38l-17.09 42.21ZM2837.28 0q-104.38 0-194.82 53.6t-142.13 145.27q-51.67 91.68-51.68 201 0 93.65 36.6 172.62l115.64-101.15a244.49 244.49 0 0 1-10.1-70.89q0-66.07 32.71-121.51t89.93-87.94a246.21 246.21 0 0 1 123.29-32.41q53.31 0 98.65 20.11l122.29-107Q2961.06 0 2837.28 0Z"/><path class="svg-logo-6" d="M3954.33 11.92h-98.46l-70.59 173.2V500.8q0 78.88-12.57 106.89t-45.32 46.11q-32.78 18.13-78.11 18.12-33 0-58.51-9.61l-56 137.51q53.58 17.1 118.22 17.1 74.67 0 131-20.55a273.17 273.17 0 0 0 99.47-63.26q43.13-42.71 58.44-88.61t15.31-164.42V14.75a2.84 2.84 0 0 0-2.88-2.83Z"/><path d="M3436.5 743.45a2.83 2.83 0 0 1-4.21.7q-34.48-28.67-53.56-64.68-31.2-59-31.21-199.39V14.75a2.84 2.84 0 0 1 2.84-2.83h166.22a2.84 2.84 0 0 1 2.84 2.83v504.7q0 47.25 6.83 74.56a8.52 8.52 0 0 1-1 6.57Z"/><path class="svg-logo-7" d="M3552.21 638.77a2.82 2.82 0 0 0-4.33.58l-79 127.2a2.84 2.84 0 0 0 1 3.93q6.16 3.69 12.68 7.21a304 304 0 0 0 52.23 22.13l56-137.51a121.62 121.62 0 0 1-14.7-6.64 112 112 0 0 1-23.88-16.9ZM3788.11 11.92a2.83 2.83 0 0 0-2.83 2.83v170.37l70.59-173.2ZM3526.25 594q-6.83-27.32-6.83-74.56V14.75a2.84 2.84 0 0 0-2.84-2.83h-166.22a2.84 2.84 0 0 0-2.84 2.83v465.33q0 140.38 31.21 199.39 19.07 36 53.56 64.68a2.83 2.83 0 0 0 4.21-.7l88.73-142.87a8.52 8.52 0 0 0 1.02-6.58Z"/><path class="svg-logo-6" d="M4624.1 125.11v357.45l175.92-147.17-175.92-210.28zM4366.24 190.58h-146.33a2.84 2.84 0 0 0-2.84 2.84v600.67a2.84 2.84 0 0 0 2.84 2.83h28.43l120.73-101v-502.5a2.84 2.84 0 0 0-2.83-2.84Z"/><rect class="svg-logo-6" x="4078.07" y="11.92" width="434" height="139" rx="2.83"/><path class="svg-logo-5" d="M4366.24 796.92a2.83 2.83 0 0 0 2.83-2.83v-98.17l-120.73 101ZM5008.77 307.92h-225a2.83 2.83 0 0 1-2.83-2.83V14.75a2.83 2.83 0 0 0-2.83-2.83h-151.18a2.83 2.83 0 0 0-2.83 2.83v110.36L4800 335.39l-175.9 147.17v311.53a2.83 2.83 0 0 0 2.83 2.83h151.18a2.83 2.83 0 0 0 2.83-2.83V455.75a2.83 2.83 0 0 1 2.83-2.83h206.4l21.44-52.71v-89.46a2.84 2.84 0 0 0-2.84-2.83ZM5169.55 11.92h-115.43a2.83 2.83 0 0 0-2.83 2.83v287.9Z"/><path class="svg-logo-8" d="M5008.77 452.92a2.84 2.84 0 0 0 2.84-2.83v-49.88l-21.44 52.71ZM5204.26 11.92h-34.71l-118.26 290.73v491.44a2.83 2.83 0 0 0 2.83 2.83h150.14a2.84 2.84 0 0 0 2.84-2.83V14.75a2.84 2.84 0 0 0-2.84-2.83Z"/></g></g></svg>
+   </a>
+   <button type="button" class="bc-header__nav-toggle" id="burger">
+      Menu 
+      <span class="bc-header__nav-toggle-icon">
+         {{ bcIcon({
+            variant: 'bars'
+         }) }}
+      </span>
+   </button>
+
+   <div class="bc-header__main-menu-container" id="navbar">
+      <div class="bc-header__row">
+         <div class="bc-header__col">
+            <button class="bc-header__nav-share-toggle" id="open-flyout">Share</button>
+            <div class="bc-header__share-flyout" id="flyout">
+               <button class="bc-header__share-flyout-close" id="close-flyout">
+                  {{ bcIcon({
+                     variant: 'xmark'
+                  }) }}
+                  <span class="sr-only">Close</span>
+               </button>
+               <div class="bc-header__social-icons-container">
+                  <a class="bc-header__social-icon">
+                     <i class="fab fa-twitter"></i>
+                     <span class="sr-only">Twitter</span>
+                  </a>
+                  <a class="bc-header__social-icon">
+                     <i class="fab fa-linkedin-in"></i>
+                     <span class="sr-only">LinkedIn</span>
+                  </a>
+                  <a class="bc-header__social-icon">
+                     <i class="fab fa-facebook-f"></i>
+                     <span class="sr-only">Facebook</span>
+                  </a>
+                  <a class="bc-header__social-icon">
+                     <i class="fab fa-whatsapp"></i>
+                     <span class="sr-only">WhatsApp</span>
+                  </a>
+                  <a class="bc-header__social-icon">
+                     <i class="fas fa-envelope"></i>
+                     <span class="sr-only">Email</span>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div class="bc-header__col">
+            <button class="bc-header__nav-close" id="close">Close</button>
+         </div>
+      </div>
+		<ul class="bc-header__main-menu">
+         <li class="bc-header__menu-item menu-item--blue">
+            <a href="#" title="">
+               Home
+            </a>
+         </li>
+         <li class="bc-header__menu-item bc-header__menu-item-has-children menu-item--teal" data-toggle="bc-header__menu-item-sub-menu">
+            <a href="#" title="">
+               About us
+               <span class="bc-header__menu-item-toggle">
+                  {{ bcIcon({
+                     variant: 'plus'
+                  }) }}
+               </span>
+            </a>
+            <ul class="bc-header__menu-item-sub-menu">
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Publications and resources</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Work with UK Youth</a>
+               </li>
+            </ul>
+         </li>
+         <li class="bc-header__menu-item bc-header__menu-item-has-children menu-item--indigo" data-toggle="bc-header__menu-item-sub-menu">
+            <a href="#" title="">
+               What we do
+               <span class="bc-header__menu-item-toggle">
+                  {{ bcIcon({
+                     variant: 'plus'
+                  }) }}
+               </span>
+            </a>
+            <ul class="bc-header__menu-item-sub-menu">
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Programmes</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Avon Tyrrell</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">The UK Youth Fund: Thriving Minds</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">UK Youth Movement</a>
+                  </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Quality marks</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Are You Convinced? Podcast</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Resources and reports</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Digital Resource Hub</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">EmpowHER Toolkit</a>
+               </li>
+            </ul>
+         </li>
+         <li class="bc-header__menu-item bc-header__menu-item-has-children menu-item--orange" data-toggle="bc-header__menu-item-sub-menu">
+            <a href="#" title="">
+               Get involved
+               <span class="bc-header__menu-item-toggle">
+                  {{ bcIcon({
+                     variant: 'plus'
+                  }) }}
+               </span>
+            </a>
+            <ul class="bc-header__menu-item-sub-menu">
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Donate</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Join the UK Youth Movement</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Partner with us</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Fundraise with us</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Read More March</a>
+               </li>
+               <li class="bc-header__menu-item">
+                  <a href="#" title="">Stay in touch</a>
+               </li>
+            </ul>
+         </li>
+         <li class="bc-header__menu-item menu-item--red">
+            <a href="#" title="">Events</a>
+         </li>
+         <li class="bc-header__menu-item menu-item--pink">
+            <a href="#" title="">News and blogs</a>
+         </li>
+         <li class="bc-header__menu-item menu-item--blue">
+            <a href="#" title="">Contact us</a>
+         </li>
+         <li class="bc-header__menu-item menu-item--blue">
+            <a href="#" title="">Donate</a>
+         </li>
+         <li class="bc-header__menu-item menu-item--red">
+            <a class="bc-header__navbar-search">
+               Search
+               {{ bcIcon({
+                  variant: 'magnifying-glass'
+               }) }}
+            </a>
+         </li>
+         {# <li class="fs-!-margin-top-2 fs-!-margin-bottom-1">
+            <button class="bc-header__navbar-account">
+               {{ bcIcon({
+                  variant: 'user'
+               }) }}
+               My account
+            </button>
+         </li> #}
+         {# <li>
+            <button class="bc-header__navbar-user">
+               {{ bcIcon({
+                  variant: 'arrow-right-from-bracket'
+               }) }}
+               Log out
+            </button>
+         </li> #}
+         <li>
+           <button class="bc-header__navbar-user">
+               {{ bcIcon({
+                  variant: 'user'
+               }) }}
+               Log in /Register
+            </button>
+         </li>
+      </ul>
+   </div>
+
+   {{ bcButton({
+      classes: 'bc-header__navbar-donate',
+      appearance: 'secondary',
+      text: 'Donate',
+      href: '#'
+   }) }}
+
+   <button class="bc-header__navbar-search bc-button-primary">
+      Search
+      {{ bcIcon({
+         variant: 'magnifying-glass'
+      }) }}
+   </button>
+
+   {# <button class="bc-header__navbar-account">
+      {{ bcIcon({
+         variant: 'user'
+      }) }}
+      My account
+   </button>
+   <button class="bc-header__navbar-user">
+      {{ bcIcon({
+         variant: 'arrow-right-from-bracket'
+      }) }}
+      Log out
+   </button> #}
+   <button class="bc-header__navbar-user">
+      {{ bcIcon({
+         variant: 'user'
+      }) }}
+      Log in /Register
+   </button>
+   <button class="bc-header__navbar-cart">
+      {{ bcIcon({
+         variant: 'basket-shopping'
+      }) }}
+      Basket
+   </button>
+
+
+   <div class="bc-header__quick-nav">
+      {# TODO: check if the below container is needed #}
+		<div class="bc-header__quick-nav-inner">
+         <ul class="bc-header__quick-nav-menu">
+            <li class="bc-header__quick-nav-menu-item">
+               <a href="#">About us</a>
+            </li>
+            <li class="bc-header__quick-nav-menu-item">
+               <a href="#">What we do</a>
+            </li>
+            <li class="bc-header__quick-nav-menu-item">
+               <a href="#">Get involved</a>
+            </li>
+            <li class="bc-header__quick-nav-menu-item">
+               <a href="#" aria-current="page">Events</a>
+            </li>
+            <li class="bc-header__quick-nav-menu-item">
+               <a href="#">News and blogs</a>
+            </li>
+            <li class="bc-header__quick-nav-menu-item">
+               <a href="#">Contact us</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <span class="bc-overlay" id="overlay"></span>
+</header>

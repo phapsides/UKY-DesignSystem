@@ -1,0 +1,28 @@
+{% from "choice-selector-card/macro.njk" import bcChoiceSelectorCard %}
+
+{{ bcChoiceSelectorCard({
+	classes: 'fs-!-margin-bottom-4',
+	name: 'DonationAmount',
+	legend: {
+		text: 'Choose an amount to donate'
+	},
+	items: [
+			{ 
+				label: '£10', 
+				hint: 'Could provide a youth worker with training and resources to help tackle inequality and encourage safer communities',
+				checked: true
+			},
+			{ 
+				label: '£25', 
+				hint: 'Could enable youth workers to support young people to tackle loneliness and improve their wellbeing' 
+			},
+			{ 
+				label: '£50', 
+				hint: 'could enable a youth worker to teach basic digital skills to young people who are digitally excluded' 
+			},
+			{ 
+				label: '',  
+				hint: 'Enter an amount to donate:' 
+			}
+	]
+}) }}

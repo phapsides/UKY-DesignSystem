@@ -1,0 +1,39 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "objects/lists";
+@use "helpers/spacing";
+@use "helpers/media-queries";
+@use "core/global";
+
+.it-event-listing {
+	margin-bottom: 3rem;
+    margin-top: 6rem;
+	@include media-queries.fs-mq($from: tablet) {
+		margin-bottom: 8rem;
+    	margin-top: 12rem;
+	}
+
+	&__document {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 2.5rem;
+		@include media-queries.fs-mq($from: tablet) {
+			grid-template-columns: 1.5fr 5fr;
+		}
+	}
+	&__body {
+		
+	}
+	.bc-filters {
+		margin-top: 3rem;
+		@include media-queries.fs-mq($from: tablet) {
+			margin-top: 6rem;
+		}
+	}
+	.bc-event-card--hero {
+		margin-top: 2rem;
+		@include media-queries.fs-mq($from: tablet) {
+			margin-top: 0;
+		}
+	}
+}

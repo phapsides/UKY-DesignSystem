@@ -1,0 +1,14 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/media-queries";
+@use "helpers/colors";
+
+.ip-my-events {
+    &__past-events {
+        .bc-heading {
+            margin-bottom: settings.$fs-gutter-half;
+        }
+        .bc-prose {
+            margin-bottom: 2.5rem;
+        }
+    }
+}

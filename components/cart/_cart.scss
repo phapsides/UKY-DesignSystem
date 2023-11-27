@@ -1,0 +1,75 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "objects/lists";
+@use "helpers/colors";
+@use "helpers/media-queries";
+@use "helpers/typography";
+@use "heading/heading";
+
+.bc-cart {
+	background: transparent;
+	&__list {
+		@extend .fs-list;
+		margin: 0;
+		li + li {
+			margin: 0;
+		}
+	}
+	&__item {
+		padding-bottom: 1.5rem;
+		padding-top: 1.5rem;
+		border-bottom: 1px solid colors.fs-color(brand-primary);
+		display: flex;
+		&:first-of-type {
+			border-top: 1px solid colors.fs-color(brand-primary);
+		}
+	}
+	&__item-inner {
+		width: 100%;
+	}
+	&__item-name {
+		@extend .bc-heading--subtitle;
+		max-width: 70%;
+	}
+	&__item-total {
+		margin-left: 0;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+		@include media-queries.fs-mq($from: tablet) {
+			margin-left: auto;
+			text-align: right;
+		}
+		p {
+			margin: 0 0 0.5rem;
+		}
+	}
+	&__item-details {
+		margin-bottom: 0;
+	}
+	&__item-remove {
+		margin-top: auto;
+	}
+	&__item-price {
+		color: colors.fs-color(black);
+		font-weight: 900;
+		line-height: 1.75;
+	}
+	.bc-button {
+		justify-content: flex-start;
+		@include media-queries.fs-mq($from: tablet) {
+			margin-top: auto;
+		}
+	}
+
+	&[data-position="sidebar"] {
+		.bc-cart__item-remove {
+			display: none;
+		}
+		.bc-cart__item {
+			&:first-of-type {
+				border-top: none;
+				padding-top: 0;
+			}
+		}
+	}
+}

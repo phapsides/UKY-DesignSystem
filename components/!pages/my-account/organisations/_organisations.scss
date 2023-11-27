@@ -1,0 +1,31 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/media-queries";
+@use "objects/forms";
+
+
+.ip-organisations {
+    &__registration-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.25rem;
+        @include media-queries.fs-mq($from: tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
+        > * {
+            margin-right: 2rem;
+        }
+    }
+    &__registration-body {
+        @extend .bc-label;
+    }
+    .bc-button-group {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    #bc-map {
+        // Height should be specified
+        max-width: 100%;
+        height: 500px;
+    }
+}   

@@ -1,0 +1,380 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "checkbox/macro.njk" import bcCheckbox %}
+	{% from "form/macro.njk" import bcForm %}
+
+	<div class="ip-communication-preferences">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Communication preferences'
+		}) }}
+
+		{% call bcProse() %}
+			<p>
+				Share a little information with us and we’ll tailor the updates we send you. We promise to only use your info in accordance with our <a href="#" title="">privacy policy</a>.
+			</p>
+		{% endcall %}
+		{% call bcForm({
+			classes: 'fs-!-margin-top-8',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+			<div class="ip-communication-preferences__section fs-!-margin-bottom-3">
+				{{ bcCheckbox({
+					name: 'NewslettersPreferences',
+					layout: 'horizontal',
+					legend: {
+						text: 'Newsletters'
+					},
+					options: [
+						{
+							text: 'Email',
+							value: '1',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Phone',
+							value: '2',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Post',
+							value: '3',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'SMS',
+							value: '4',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						}
+					]
+				}) }}
+			</div>
+			<div class="ip-communication-preferences__section fs-!-margin-bottom-3">
+				{{ bcCheckbox({
+					name: 'CampaignsPreferences',
+					layout: 'horizontal',
+					legend: {
+						text: 'Campaigns'
+					},
+					options: [
+						{
+							text: 'Email',
+							value: '1',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Phone',
+							value: '2',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Post',
+							value: '3',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'SMS',
+							value: '4',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						}
+					]
+				}) }}
+			</div>
+			<div class="ip-communication-preferences__section fs-!-margin-bottom-3">
+				{{ bcCheckbox({
+					name: 'ProgrammesPreferences',
+					layout: 'horizontal',
+					legend: {
+						text: 'Programmes'
+					},
+					options: [
+						{
+							text: 'Email',
+							value: '1',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Phone',
+							value: '2',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Post',
+							value: '3',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'SMS',
+							value: '4',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						}
+					]
+				}) }}
+			</div>
+			<div class="ip-communication-preferences__section fs-!-margin-bottom-3">
+				{{ bcCheckbox({
+					name: 'GrantsPreferences',
+					layout: 'horizontal',
+					legend: {
+						text: 'Grants'
+					},
+					options: [
+						{
+							text: 'Email',
+							value: '1',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Phone',
+							value: '2',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Post',
+							value: '3',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'SMS',
+							value: '4',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						}
+					]
+				}) }}
+			</div>
+			<div class="ip-communication-preferences__section fs-!-margin-bottom-3">
+				{{ bcCheckbox({
+					name: 'SupportingUsPreferences',
+					layout: 'horizontal',
+					legend: {
+						text: 'Supporting us'
+					},
+					options: [
+						{
+							text: 'Email',
+							value: '1',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Phone',
+							value: '2',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Post',
+							value: '3',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'SMS',
+							value: '4',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						}
+					]
+				}) }}
+			</div>
+			<div class="ip-communication-preferences__section fs-!-margin-bottom-3">
+				{{ bcCheckbox({
+					name: 'OutdoorLearningPreferences',
+					layout: 'horizontal',
+					legend: {
+						text: 'Outdoor learning'
+					},
+					options: [
+						{
+							text: 'Email',
+							value: '1',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Phone',
+							value: '2',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Post',
+							value: '3',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'SMS',
+							value: '4',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						}
+					]
+				}) }}
+			</div>
+			<div class="ip-communication-preferences__section fs-!-margin-bottom-6">
+				{{ bcCheckbox({
+					name: 'ResearchPreferences',
+					layout: 'horizontal',
+					legend: {
+						text: 'Research'
+					},
+					options: [
+						{
+							text: 'Email',
+							value: '1',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Phone',
+							value: '2',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'Post',
+							value: '3',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						},
+						{
+							text: 'SMS',
+							value: '4',
+							attributes: { 
+    							'data-checkall-group': 'preferences'
+							}
+						}
+					]
+				}) }}
+			</div>
+			{{ bcCheckbox({
+				classes: 'ip-communication-preferences__unsubscribe',
+				name: 'ExampleRadioGroup',
+				options: [
+					{
+						text: 'I don’t want to receive any marketing communications',
+						value: '1',
+						attributes: { 
+							'data-checkall-trigger': 'preferences'
+						}
+					}
+				]
+			}) }}
+			{{ bcButton({
+				classes: 'fs-!-margin-top-6',
+				appearance: 'primary',
+				text: 'Update preferences'
+			}) }}
+		{% endcall %}
+		
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences', current: true },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+
+		// Get  triggers
+		const checkAll = document.querySelectorAll('[data-checkall-trigger]');
+		let matchingCheckboxes = document.querySelectorAll('[data-checkall-group]');
+		
+		// Check / Uncheck all matching checkboxes
+		function toggleCheckboxGroup (checked) {
+			
+			matchingCheckboxes.forEach(function(el){
+				if (checked !== el.checked) {
+					el.checked = !el.checked; 
+				}
+			});
+		};
+		// Get all checkboxes
+		checkAll.forEach(function(el){
+			el.addEventListener('change', function(){
+				let checked = el.checked ? false : true;
+				toggleCheckboxGroup(checked); 
+			});
+		});
+
+		matchingCheckboxes.forEach(function(el){
+			el.addEventListener('change', function(e){
+				if (e.target.checked) {
+					checkAll[0].checked = false;
+				}
+			});
+		});
+		
+		
+    </script>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% from "details/macro.njk" import bcDetails %}
+{% from "prose/macro.njk" import bcProse %}
+
+{% call bcDetails({
+	heading: {
+		text: 'Additional information'
+	}
+}) %}
+	{% call bcProse() %}
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi accusamus voluptatem consequuntur sit deleniti dolorem voluptates fuga perspiciatis mollitia excepturi. Deserunt magni assumenda tenetur, nam natus. Nam, tempora facere cum?</p>
+		<p>Dignissimos inventore nulla nisi quam quas dolorum earum, architecto quasi cupiditate sunt sit, itaque sapiente ut numquam sint quisquam assumenda. Voluptatem beatae, quae ab sint vel quod magnam perspiciatis placeat!</p>
+		<p>Maiores molestias eveniet, quod quam! Tempore ipsum, reiciendis, quos blanditiis vero unde libero recusandae, corporis, illo magnam nobis rem. Labore eligendi, quod numquam distinctio nemo voluptas aperiam consectetur sunt voluptatum.</p>
+	{% endcall %}
+{% endcall %}
+
+{% call bcDetails({
+	heading: {
+		text: 'Directions'
+	}
+}) %}
+	{% call bcProse() %}
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi accusamus voluptatem consequuntur sit deleniti dolorem voluptates fuga perspiciatis mollitia excepturi. Deserunt magni assumenda tenetur, nam natus. Nam, tempora facere cum?</p>
+		<p>Dignissimos inventore nulla nisi quam quas dolorum earum, architecto quasi cupiditate sunt sit, itaque sapiente ut numquam sint quisquam assumenda. Voluptatem beatae, quae ab sint vel quod magnam perspiciatis placeat!</p>
+		<p>Maiores molestias eveniet, quod quam! Tempore ipsum, reiciendis, quos blanditiis vero unde libero recusandae, corporis, illo magnam nobis rem. Labore eligendi, quod numquam distinctio nemo voluptas aperiam consectetur sunt voluptatum.</p>
+	{% endcall %}
+{% endcall %}

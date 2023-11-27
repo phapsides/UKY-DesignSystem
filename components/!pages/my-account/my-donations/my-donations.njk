@@ -1,0 +1,123 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "table/macro.njk" import bcTable %}
+	{% from "pagination/macro.njk" import bcPagination %}
+	{% from "card/macro.njk" import bcCard %}
+
+	<div class="ip-my-donations">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'My donations'
+		}) }}
+
+		{% call bcCard({
+			classes: 'fs-!-margin-bottom-6',
+			donate: true,
+			donateAmount: '1,250',
+			donateDate: '2 Feb, 2022',
+			button: {
+				appearance: 'primary',
+				text: 'Make a donation',
+				href: '#'
+			}
+		}) %}
+			{% call bcProse() %}
+				
+			{% endcall %}
+		{% endcall %}
+
+		{{ bcTable({
+			responsive: true,
+			caption: 'All donations',
+			head: [
+				{ text: 'Date', format: 'date' },
+				{ text: 'Type' },
+				{ text: 'Value (£)', format: 'numeric' }
+			],
+			body: [
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				],
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Monthly' },
+					{ text: '£10', format: 'numeric' }
+				]
+			]
+		}) }}
+		{{ bcPagination({
+			classes: 'fs-!-margin-top-6',
+			currentPage: 1,
+			totalPages: 2
+		}) }}
+		
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations', current: true },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

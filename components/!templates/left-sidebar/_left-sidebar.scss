@@ -1,0 +1,50 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "objects/lists";
+@use "helpers/spacing";
+@use "helpers/media-queries";
+@use "core/global";
+
+.it-left-sidebar {
+	margin-bottom: 3rem;
+    margin-top: 6rem;
+	@include media-queries.fs-mq($from: tablet) {
+		margin-bottom: 8rem;
+    	margin-top: 12rem;
+	}
+
+	&__document {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 3rem;
+		@include media-queries.fs-mq($from: tablet) {
+			grid-gap: 12.5%;
+			grid-template-columns: 2fr 5fr;
+		}
+	}
+	// TODO: Move the below in a another stylesheet?
+	.ip-personal-details__section {
+		.bc-form-row {
+			&:first-of-type {
+				margin-top: 1.25rem;
+			}
+		}
+	}
+	&__body {
+		
+	}
+	.bc-form-field-group {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: 1fr;
+		@include media-queries.fs-mq($from: tablet) {
+			grid-gap: 3rem;
+			grid-template-columns: 1fr 1fr;
+		}
+		.bc-form-row {
+			&:first-of-type {
+				@include spacing.fs-responsive-margin(5, $direction: block-start);
+			}
+		}
+	}
+}

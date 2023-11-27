@@ -1,0 +1,60 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "objects/forms";
+@use "helpers/colors";
+@use "button/button";
+@use "sass:math";
+
+.bc-pagination {
+	text-align: center;
+	&__list {
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		list-style: none;
+		align-items: center;
+		> * + * {
+			margin-left: 0.25rem;
+		}
+	}
+	&__link {
+		@extend .bc-label;
+		margin: 0;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0.25rem 0.5rem;
+		text-decoration: none;
+		color: colors.fs-color(brand-secondary);
+		margin-top: calc(0.35rem / 2);
+		&--hidden {
+			visibility: hidden;
+		}
+	}
+	// TODO: Extend the button?
+	&__previous,
+	&__next {
+		@extend .bc-button;
+		line-height: inherit;
+		color: colors.fs-color(brand-secondary);
+		display: inline-block;
+		border: 0.15rem solid colors.fs-color(brand-secondary);
+		padding-left: 0.85rem;
+		padding-right: 0.85rem;
+		font-size: 1.3rem;
+		margin-left: 0.25rem;
+		box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-secondary);
+		margin-right: 0.35rem;
+		transition: all .1s;
+	}
+	&__previous {
+		margin-right: 0.5rem;
+	}
+	&__next {
+		margin-left: 0.5rem;
+	}
+	&__jump {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

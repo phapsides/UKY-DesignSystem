@@ -1,0 +1,19 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "../helpers/typography";
+
+html {
+	text-size-adjust: 100%;
+	@if settings.$fs-font-sizes-root != 16px {
+		font-size: settings.$fs-font-sizes-root;
+	}
+}
+
+// TODO: Check for body font size on mobile
+body {
+	@include typography.fs-typography-common;
+	@include typography.fs-font-stack(serif);
+	@include typography.fs-font-size(body);
+	margin: 0;
+	color: settings.$fs-text-color;
+	background-color: settings.$fs-body-background-color;
+}

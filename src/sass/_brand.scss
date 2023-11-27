@@ -1,0 +1,209 @@
+// Colours
+$uky-color-white: #fff;
+$uky-color-black: #000;
+$uky-color-cobalt: #2354a2;
+$uky-color-faded-blue: #5585c4;
+$uky-color-cerise: #bb0e7b;
+$uky-color-purplish-grey: #656265;
+$uky-color-light-grey: #e9edf3;
+$uky-color-orange-red: #e64619;
+$uky-color-lipstick: #c51149;
+$uky-color-rouge: #ad2142;
+$uky-color-topaz: #1eb8df;
+$uky-color-page-background: #f8f8f8;
+
+// $uky-color-border: #ddd;
+
+$uky-color-context-danger: #da1e27;
+$uky-color-context-success: #bb0e7b;
+$uky-color-context-warning: #2354a2;
+$uky-color-context-info: #2354a2;
+
+// Brand fonts
+$uky-font-sans: (
+	"Century Gothic",
+	ui-sans-serif,
+	system-ui,
+	"Apple Color Emoji",
+	"Segoe UI Emoji",
+	"Segoe UI Symbol"
+);
+
+$uky-font-serif: ("Avenir", ui-serif);
+
+// Font scale
+$uky-font-scale: (
+	h1: (
+		null: (
+			font-size: 50px,
+			line-height: 70px,
+			font-weight: 700,
+		),
+	),
+	h1-mobile: (
+		null: (
+			font-size: 35px,
+			line-height: 43px,
+			font-weight: 700,
+		),
+	),
+	h2: (
+		null: (
+			font-size: 40px,
+			line-height: 56px,
+			font-weight: 700,
+		),
+	),
+	h2-mobile: (
+		null: (
+			font-size: 28px,
+			line-height: 34px,
+			font-weight: 700,
+		),
+	),
+	h3: (
+		null: (
+			font-size: 25px,
+			line-height: 30px,
+			font-weight: 700,
+		),
+	),
+	h3-mobile: (
+		null: (
+			font-size: 21px,
+			line-height: 26px,
+			font-weight: 700,
+		),
+	),
+	h4: (
+		null: (
+			font-size: 20px,
+			line-height: 20px,
+			font-weight: 700,
+		),
+	),
+	body: (
+		null: (
+			font-size: 20px,
+			line-height: 30px,
+			font-weight: 500,
+		),
+	),
+	body-mobile: (
+		null: (
+			font-size: 14px,
+			line-height: 21px,
+			font-weight: 500,
+		),
+	),
+	body-small: (
+		null: (
+			font-size: 16px,
+			line-height: 24px,
+			font-weight: 500,
+		),
+	),
+	nav-links: (
+		null: (
+			font-size: 16px,
+			line-height: 30px,
+			font-weight: 700,
+		),
+	),
+	button: (
+		null: (
+			font-size: 20px,
+			line-height: 28px,
+			font-weight: 500,
+		),
+	),
+);
+
+// Spacing scale
+$uky-spacing: (
+	0: (
+		null: 0,
+	),
+	1: (
+		null: 8px,
+	),
+	2: (
+		null: 16px,
+	),
+	3: (
+		null: 24px,
+	),
+	4: (
+		null: 32px,
+	),
+	5: (
+		null: 40px,
+	),
+	6: (
+		null: 48px,
+	),
+	7: (
+		null: 56px,
+	),
+	8: (
+		null: 64px,
+	),
+	9: (
+		null: 72px,
+	),
+	10: (
+		null: 80px,
+	),
+);
+
+@use "@querkmachine/felafel/src/scss/settings" with (
+	$fs-enable-rounded-corners: true,
+	$fs-merge-config-maps: false,
+	$fs-merge-breakpoints: true,
+	$fs-canvas-background-color: $uky-color-page-background,
+	$fs-page-width: 1340px,
+	$fs-border-radius: 0,
+	$fs-color-palette: (
+		white: $uky-color-white,
+		black: $uky-color-black,
+		text: $uky-color-purplish-grey,
+		disabled: $uky-color-light-grey,
+		// border: $uky-color-border,
+		outline: $uky-color-topaz,
+		brand-primary: $uky-color-cobalt,
+		brand-secondary: $uky-color-lipstick,
+		link: $uky-color-lipstick,
+		link-hover: $uky-color-rouge,
+		furniture: $uky-color-page-background,
+		card-shadow: $uky-color-cerise,
+		danger: $uky-color-context-danger,
+		success: $uky-color-context-success,
+		warning: $uky-color-context-warning,
+		info: $uky-color-context-info,
+		orange: $uky-color-orange-red
+	),
+	$fs-text-color: $uky-color-purplish-grey,
+	$fs-text-color-heading: $uky-color-cobalt,
+	$fs-font-sizes: $uky-font-scale,
+	$fs-font-stacks: (
+		sans: (
+			stack: $uky-font-sans,
+			regular: 500,
+			bold: 700
+		),
+		serif: (
+			stack: $uky-font-serif,
+			regular: 500,
+			bold: 700
+		),
+
+	),
+	$fs-spacing: $uky-spacing,
+	$fs-border-width-form-element: 2.5px,
+	$fs-form-element-border-color: $uky-color-cobalt,
+	$fs-form-element-text-color: $uky-color-black,
+	$fs-form-element-background-color: $uky-color-page-background,
+	$fs-form-element-vertical-padding: 1,
+	$fs-form-element-horizontal-padding: 2,
+	$fs-font-sizes-root: 16px
+);

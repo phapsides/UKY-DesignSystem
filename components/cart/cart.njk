@@ -1,0 +1,33 @@
+{% from "cart/macro.njk" import bcCart %}
+
+{{ bcCart({
+    items: [
+        { 
+            name: 'UK Youth Fund Thriving Minds - Meet the Funder Application Webinar',
+            details: 'One-off payment',
+            price: '£30'
+        },
+        { 
+            name: 'Monthly donation',
+            details: 'Direct debit',
+            price: '£5'
+        }
+    ]
+}) }}
+
+
+{{ bcCart({
+    position: 'sidebar',
+    items: [
+        { 
+            name: 'UK Youth Fund Thriving Minds - Meet the Funder Application Webinar',
+            details: 'One-off payment',
+            price: '£30'
+        },
+        { 
+            name: 'Monthly donation',
+            details: 'Direct debit',
+            price: '£5'
+        }
+    ]
+}) }}

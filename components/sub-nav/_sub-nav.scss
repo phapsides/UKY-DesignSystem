@@ -1,0 +1,38 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "objects/lists";
+@use "helpers/typography";
+
+.bc-sub-nav {
+	background: colors.fs-color(white);
+	border: 2.5px solid colors.fs-color(brand-secondary);
+	box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-secondary);
+	margin-right: 0.35rem;
+	padding: 1.5rem;
+	&__list {
+		@extend .fs-list;
+		margin: 0;
+		li + li {
+			margin: 0;
+		}
+	}
+	&__link {
+		@include typography.fs-font-stack(sans, $weight: 700);
+		@include typography.fs-font-size(body-small);
+		padding: 0.5rem 0;
+		color: colors.fs-color(brand-secondary);
+		text-decoration: none;
+		display: table-cell;
+		width: 100%;
+		&::after {
+			content: "";
+			display: table-cell;
+			width: 100%;
+		}
+		&[aria-current="page"],
+		&[aria-current="true"],
+		&:hover {
+			box-shadow: inset 0 -2.5px 0 colors.fs-color(brand-secondary);
+		}
+	}
+}

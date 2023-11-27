@@ -1,0 +1,52 @@
+{% extends '@t-right-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "button/macro.njk" import bcButton %}
+	
+
+	<div class="ip-payment-confirmation">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Thank you for your order.'
+		}) }}
+        <div class="ip-payment-confirmation__section fs-!-margin-bottom-10">
+            {% call bcProse() %}
+                <p>
+                    <strong>Order number is #48273.</strong><br/>
+                    We’ve sent your order and tracking details to <user email>.
+                </p>
+                {{ bcButton({
+					classes: 'fs-!-margin-top-5',
+					appearance: 'primary',
+					text: 'Go to homepage'
+				}) }}
+            {% endcall %}
+        </div>
+
+        <div class="ip-payment-confirmation__section fs-!-margin-bottom-5">
+            {{ bcHeading({
+                hierarchy: 2,
+                text: 'Need help?'
+            }) }}
+            {% call bcProse() %}
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
+                </p>
+            {% endcall %}
+        </div>
+        <div class="ip-payment-confirmation__section">
+            {{ bcHeading({
+                hierarchy: 2,
+                text: 'Return policy'
+            }) }}
+            {% call bcProse() %}
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
+                </p>
+            {% endcall %}
+        </div>
+	</div>
+
+{% endblock %}

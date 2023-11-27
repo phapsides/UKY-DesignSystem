@@ -1,0 +1,273 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "input/macro.njk" import bcInput %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "select/macro.njk" import bcSelect %}
+	{% from "date-input/macro.njk" import bcDateInput %}
+	{% from "form/macro.njk" import bcForm %}
+	
+	<div class="ip-personal-details">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Personal details'
+		}) }}
+
+		<div class="ip-personal-details__section fs-!-margin-bottom-9">
+			{{ bcHeading({
+				hierarchy: 2,
+				text: 'Account details'
+			}) }}
+			{{ bcInput({
+				name: 'ExampleInputDisabled',
+				required: true,
+				label: { 
+					text: 'Email' 
+				},
+				disabled: true,
+				value: 'abc@mail.com'
+			}) }}
+
+			{{ bcButton({
+				classes: 'fs-!-margin-top-3',
+				appearance: 'primary',
+				text: 'Change password'
+			}) }}
+		</div>
+
+		{% call bcForm({
+			classes: 'fs-!-margin-top-8',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+			<div class="ip-personal-details__section fs-!-margin-bottom-9">
+				{{ bcHeading({
+					hierarchy: 2,
+					text: 'Contact details'
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'First name' 
+					},
+					value: 'Michelle',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Last name' 
+					},
+					value: 'Baker',
+					required: true
+				}) }}
+				<div class="bc-form-field-group">
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Salutation' 
+						},
+						value: '',
+						required: true
+					}) }}
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Pronouns' 
+						},
+						value: '',
+						required: true
+					}) }}
+				</div>
+				{{ bcDateInput({
+					idPrefix: 'DOB',
+					day: {
+						name: 'Day',
+						autocomplete: 'bday-day',
+						value: 28
+					},
+					month: {
+						name: 'Month',
+						autocomplete: 'bday-month',
+						value: 11
+					},
+					year: {
+						name: 'Year',
+						autocomplete: 'bday-year',
+						value: 2020
+					},
+					legend: {
+						text: 'Date of birth'
+					},
+					hint: { 
+						text: 'e.g. 31/01/1978' 
+					}
+				}) }}
+			</div>
+
+			<div class="ip-personal-details__section fs-!-margin-bottom-9">
+				{{ bcHeading({
+					hierarchy: 3,
+					text: 'Address'
+				}) }}
+				<div class="fs-!-margin-bottom-4">
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Address line 1' 
+						},
+						value: '5 Station Rd',
+						required: true
+					}) }}
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Address line 2' 
+						},
+						required: true
+					}) }}
+					<div class="bc-form-field-group">
+						{{ bcInput({
+							name: 'ExampleInput',
+							label: { 
+								text: 'City' 
+							},
+							value: '',
+							required: true
+						}) }}
+						{{ bcInput({
+							name: 'ExampleInput',
+							label: { 
+								text: 'Zip/postal code' 
+							},
+							value: '',
+							required: true
+						}) }}
+					</div>
+					{{ bcSelect({
+						classes: 'fs-!-margin-bottom-0',
+						name: "ExampleSelect",
+						label: { 
+							text: "Country" 
+						},
+						required: true,
+						options: [
+							{ value: "", text: "Please select" },
+							{ value: "UK", text: "United Kingdom", selected: true },
+							{ value: "Other", text: "Other" }
+						]
+					}) }}
+				</div>
+			</div>
+			
+			<div class="ip-personal-details__section fs-!-margin-bottom-9">
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Email address (business)' 
+					},
+					value: '',
+					required: true
+				}) }}
+				<div class="bc-form-field-group">
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Work tel/Mobile number' 
+						},
+						value: '',
+						required: true
+					}) }}
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Mobile number' 
+						},
+						value: '',
+						required: true
+					}) }}
+				</div>
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Linkedin' 
+					},
+					value: '',
+					required: true
+				}) }}
+			</div>
+
+			<div class="ip-personal-details__section fs-!-margin-bottom-10">
+				{{ bcHeading({
+					hierarchy: 3,
+					text: 'Demographic data'
+				}) }}
+				{{ bcSelect({
+					classes: 'fs-!-margin-bottom-0',
+					name: "ExampleSelect",
+					label: { 
+						text: "Gender" 
+					},
+					required: true,
+					options: [
+						{ value: "", text: "Please select" },
+						{ value: "value", text: "Selected", selected: true }
+					]
+				}) }}
+				{{ bcSelect({
+					classes: 'fs-!-margin-bottom-0',
+					name: "ExampleSelect",
+					label: { 
+						text: "Ethnicity" 
+					},
+					required: true,
+					options: [
+						{ value: "", text: "Please select" },
+						{ value: "value", text: "Selected", selected: true }
+					]
+				}) }}
+				{{ bcSelect({
+					classes: 'fs-!-margin-bottom-0',
+					name: "ExampleSelect",
+					label: { 
+						text: "Disability" 
+					},
+					required: true,
+					options: [
+						{ value: "", text: "Please select" },
+						{ value: "value", text: "Selected", selected: true }
+					]
+				}) }}
+			</div>
+
+			{{ bcButton({
+				appearance: 'primary',
+				text: 'Save changes'
+			}) }}
+		{% endcall %}
+	</div>
+
+{% endblock %}
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details', current: true },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

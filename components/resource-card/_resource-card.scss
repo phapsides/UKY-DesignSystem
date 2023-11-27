@@ -1,0 +1,51 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+
+.bc-resource-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    > * {
+        flex: 1;
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: 2.5fr 4fr;
+        grid-gap: 2rem;
+    }
+    &__cta {
+        margin-left: auto;
+        margin-top: auto;
+        display: flex;
+    }
+    .bc-button {
+        margin-bottom: 0.35rem;
+        margin-top: auto;
+    }
+    .bc-heading {
+        color: colors.fs-color(white);
+    }
+    &:nth-child(4n + 1) {
+        background: colors.fs-color(card-shadow);
+    }
+    &:nth-child(4n + 2) {
+        background: colors.fs-color(orange);
+    }
+    &:nth-child(4n + 3) {
+        background: colors.fs-color(brand-secondary);
+    }
+    &:nth-child(4n + 4) {
+        background: colors.fs-color(brand-primary);
+        .bc-button[data-appearance="reverse"] {
+            background: colors.fs-color(white);
+            color: colors.fs-color(brand-secondary);
+            border-color: colors.fs-color(brand-secondary);
+            box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-secondary);
+            margin-right: 0.35rem;
+            &:hover,
+            &:focus {
+                box-shadow: 0 0 0 colors.fs-color(brand-secondary);
+            }
+        }
+    }
+}

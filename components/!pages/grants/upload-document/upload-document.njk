@@ -1,0 +1,93 @@
+{% extends '@t-centered' %}
+
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "form/macro.njk" import bcForm %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "input/macro.njk" import bcInput %}
+    {% from "date-input/macro.njk" import bcDateInput %}
+    {% from "file-upload/macro.njk" import bcFileUpload %}
+
+	<div class="ip-upload-document">
+        {{ bcButton({
+            classes: 'fs-!-margin-block-6',
+            href: '#',
+            text: 'Back to grants'
+        }) }} 
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Grant name conditions'
+		}) }}
+        {# TODO: Ammend the below implementation #}
+        {{ bcDateInput({
+            idPrefix: 'SubmitBy',
+            attributes: { 
+                'hidden': 'hidden'
+            },
+            day: {
+                name: 'Day',
+                autocomplete: 'bday-day',
+                value: 5
+            },
+            month: {
+                name: 'Month',
+                autocomplete: 'bday-month',
+                value: 6
+            },
+            year: {
+                name: 'Year',
+                autocomplete: 'bday-year',
+                value: 2022
+            },
+            legend: {
+                text: 'Submit by'
+            },
+            hint: { 
+                text: '05/06/2022' 
+            }
+        }) }}
+
+		{% call bcForm({
+			classes: 'fs-!-margin-top-8',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+			{{ bcHeading({
+                hierarchy: 2,
+                text: 'Meet condition of grant'
+            }) }}
+            {% call bcProse() %}
+			    <p>	
+				    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+			    </p>
+		    {% endcall %}
+
+            {{ bcFileUpload({
+                name: 'ExampleFileUpload',
+                label: { text: "Upload document" },
+                hint: { text: "Select a file or drop and drag here" },
+                multiple: true
+            }) }}
+            
+            <div class="bc-button-group">
+                {{ bcButton({
+                    classes: 'fs-!-margin-top-7',
+                    appearance: 'primary',
+                    type: 'submit',
+                    text: 'Submit'
+                }) }}
+                
+                {{ bcButton({
+                     classes: 'fs-!-margin-top-5',
+                    appearance: 'link',
+                    text: 'Save and close'
+                }) }}
+            </div>
+
+		{% endcall %}
+	</div>
+
+{% endblock %}

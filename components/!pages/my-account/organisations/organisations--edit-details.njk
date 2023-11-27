@@ -1,0 +1,188 @@
+{% extends '@t-centered' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "input/macro.njk" import bcInput %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "select/macro.njk" import bcSelect %}
+	{% from "form/macro.njk" import bcForm %}
+
+	<div class="ip-organisations">
+		{{ bcButton({
+            classes: 'fs-!-margin-bottom-6',
+            href: '#',
+            text: 'Back to organisations'
+        }) }} 
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Organisation name here'
+		}) }}
+		<div class="ip-organisations__registration-details">
+			<div>
+                <p class="ip-organisations__registration-body" id="charity-commission-registration-number">Charity commission registration number</p>
+                <p class="ip-organisations__registration-number" aria-describedby="charity-commission-registration-number">XXXXXX</p>
+            </div>
+			<div>
+                <p class="ip-organisations__registration-body" id="companies-house-registration-number">Companies house registration number</p>
+                <p class="ip-organisations__registration-number" aria-describedby="companies-house-registration-number">XXXXXX</p>
+            </div>
+
+		</div>
+		{% call bcForm({
+			classes: 'fs-!-margin-top-8',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+			<div class="ip-organisations__section fs-!-margin-bottom-9">
+				{{ bcHeading({
+					hierarchy: 2,
+					text: 'Organisation details'
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Address line 1' 
+					},
+					value: 'Lorem ipsum dolor sit amet, consectetur adipiscing ',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Address line 2' 
+					},
+					value: 'Lorem ipsum dolor sit amet, consectetur adipiscing ',
+					required: true
+				}) }}
+				<div class="bc-form-field-group">
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'City' 
+						},
+						value: 'Lorem ipsum dolor',
+						required: true
+					}) }}
+					{{ bcInput({
+						name: 'ExampleInput',
+						label: { 
+							text: 'Zip/Postal code' 
+						},
+						value: 'Lorem ipsum dolor',
+						required: true
+					}) }}
+				</div>
+				 {{ bcSelect({
+                    name: "ExampleSelect",
+                    label: { 
+                        text: "Country"
+                    },
+                    required: true,
+                    options: [
+                        { value: "", text: "Please select" },
+                        { value: "UK", text: "United Kingdom", selected: true }
+                    ]
+                }) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Email address (Business)' 
+					},
+					value: 'email@email.com',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Preferred contact email address' 
+					},
+					value: 'email@email.com',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Website' 
+					},
+					value: 'xxxxx.com',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Twitter' 
+					},
+					value: 'xxxxx.com',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Linkedin' 
+					},
+					value: 'xxxxx.com',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Instagram' 
+					},
+					value: 'xxxxx.com',
+					required: true
+				}) }}
+				{{ bcInput({
+					name: 'ExampleInput',
+					label: { 
+						text: 'Facebook' 
+					},
+					value: 'xxxxx.com',
+					required: true
+				}) }}
+			</div>
+
+			<div class="bc-button-group">
+
+				{{ bcButton({
+					appearance: 'primary',
+					type: 'submit',
+					text: 'Save'
+				}) }}
+				{{ bcButton({
+					 classes: 'fs-!-margin-top-5',
+					appearance: 'primary',
+					text: 'Cancel',
+					appearance: 'link'
+				}) }}
+                   
+            </div>
+
+			
+		{% endcall %}
+
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations', current: true },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

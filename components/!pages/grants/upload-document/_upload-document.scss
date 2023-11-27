@@ -1,0 +1,20 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+
+
+.ip-upload-document {
+    a.bc-button {
+        &:not([data-appearance="secondary"]) {
+            color: colors.fs-color(brand-secondary);
+            background: transparent;
+            text-decoration: underline;
+            padding: 0;
+            border: none;
+        }
+    }
+    .bc-button-group {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}

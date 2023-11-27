@@ -1,0 +1,82 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "heading/heading";
+
+.ip-payment-information {
+	&__shipping-details {
+		background-color: colors.fs-color(white);
+	}
+	&__shipping-details-row {
+		display: grid;
+		grid-template-columns: 1.5fr 5fr;
+	}
+	&__shipping-details-column {
+		margin: 0;
+		display: flex;
+		&:first-of-type {
+			font-weight: 900;
+		}
+		span {
+			display: inline-block;
+			width: 70%;
+		}
+	}
+	&__shipping-details-link {
+		margin-left: auto;
+	}
+	&__cart {
+		background-color: colors.fs-color(white);
+	}
+	&__cart-summary {
+		@extend .bc-heading--subtitle;
+		display: flex;
+		p {
+			margin: 0;
+			&:last-of-type {
+				margin-left: auto;
+			}
+		}
+	}
+	&__total-amount {
+		color: colors.fs-color(black);
+	}
+	&__notification {
+		.bc-alert {
+			border: 0 none;
+			&__icon {
+				top: 0.25rem;
+				left: 0;
+			}
+			&__body {
+				padding-left: 2rem;
+			}
+		}
+	}
+	.bc-form-field-group {
+		display: flex;
+		> * {
+			margin-right: 2.5rem;
+		}
+	}
+	.bc-button-group {
+		display: flex;
+		[data-appearance="primary"] {
+			margin-left: auto;
+		}
+		a {
+			align-self: center;
+		}
+	}
+	input {
+		&#CardNumber {
+			max-width: 418px;
+		}
+		&#ExpirationDate {
+			max-width: 303px;
+		}
+		&#SecurityCode {
+			max-width: 147px;
+		}
+	}
+}

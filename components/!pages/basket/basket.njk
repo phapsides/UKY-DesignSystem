@@ -1,0 +1,86 @@
+{% extends '@t-right-sidebar' %}
+
+{% block beforeInner %}
+    {% from "heading/macro.njk" import bcHeading %}
+
+    {{ bcHeading({
+        classes: 'fs-!-margin-bottom-6',
+        hierarchy: 1,
+        text: 'My basket'
+    }) }}
+        
+{% endblock %}
+
+{% block body %}
+	{% from "cart/macro.njk" import bcCart %}
+
+	<div class="ip-basket">
+	
+        {{ bcCart({
+            items: [
+                { 
+                    name: 'UK Youth Fund Thriving Minds - Meet the Funder Application Webinar',
+                    price: '£30'
+                },
+                { 
+                    name: 'Monthly donation',
+                    price: '£5'
+                }
+            ]
+        }) }}
+		
+	</div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {% from "heading/macro.njk" import bcHeading %}
+    {% from "button/macro.njk" import bcButton %}
+    {% from "input/macro.njk" import bcInput %}
+    {% from "icon/macro.njk" import bcIcon %}
+    {% from "alert/macro.njk" import bcAlert %}
+
+	<div class="ip-basket__summary fs-!-padding-block-4 fs-!-padding-inline-5">
+
+        {{ bcHeading({
+			hierarchy: 2,
+			text: 'Summary'
+		}) }}
+
+        <div class="ip-basket__promo-box">
+            {{ bcInput({
+                name: 'ExampleInput',
+                label: { text: 'Promo code' },
+                required: true
+            }) }}
+            {{ bcButton({
+                appearance: 'secondary',
+                text: 'Redeem'
+            }) }}
+        </div>
+        {% call bcAlert({
+            variant: 'success'
+        }) %}
+            <p>VOUCHERNAME applied</p>
+        {% endcall %}
+
+        <div class="ip-basket__subtotal fs-!-margin-block-6">
+            {{ bcHeading({
+                hierarchy: 3,
+                text: 'Sub-total'
+            }) }}
+            <p class="bc-label">£35</p>
+        </div>
+
+        <div class="ip-basket__actions">
+            {{ bcButton({
+                classes: 'fs-!-margin-bottom-3',
+                appearance: 'primary',
+                text: 'Checkout'
+            }) }}
+
+            <a href="#" title="">Continue shopping</a>
+	    </div>
+	</div>
+
+{% endblock %}

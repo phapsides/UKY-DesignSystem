@@ -1,0 +1,28 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "helpers/media-queries";
+
+* {
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: inherit;
+	}
+}
+
+[hidden] {
+	display: none !important;
+}
+
+a {
+	&:not(.bc-button) {
+		@include typography.fs-font-stack(sans, $weight: 700);
+		color: colors.fs-color(link);
+		&:hover {
+			color: colors.fs-color(link-hover);
+		}
+	}
+}

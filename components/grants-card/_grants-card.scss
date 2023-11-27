@@ -1,0 +1,74 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "objects/forms";
+@use "helpers/media-queries";
+
+.bc-grants-card {
+    background: colors.fs-color(white);
+    padding: 2.25rem;
+    &__status {
+        color: colors.fs-color(card-shadow);
+    }
+    &__reference {
+        margin-top: 0;
+    }
+    &__cta {
+        display: flex;
+        justify-content: start;
+        margin-right: 0.35rem;
+        margin-bottom: 0.35rem;
+        @include media-queries.fs-mq($from: tablet) {
+            justify-content: end;
+        }
+        @at-root .bc-grants-card--successful & {
+            margin: 0;
+            justify-content: flex-start;
+        }
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        margin-bottom: 2.25rem;
+        @include media-queries.fs-mq($from: tablet) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @at-root .bc-grants-card--unsuccessful & {
+            grid-template-columns: 1fr;
+            margin-top: 2.25rem;
+            margin-bottom: 0;
+        }
+        @at-root .bc-grants-card--successful & {
+            grid-template-columns: 1fr;
+        }
+    }
+    &__label {
+        @extend .bc-label;
+    }
+    &__to-do-list {
+        > * {
+            margin: 0;
+        }
+        dt {
+            @extend .bc-label;
+        }
+        dd {
+            margin-top: 1rem;
+        }
+    }
+    .bc-label {
+        margin-top: 2.25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    &--successful {
+        display: grid;
+        grid-template-columns: 1fr;
+        @include media-queries.fs-mq($from: tablet) {
+            grid-template-columns: 2.5fr 2fr;
+        }
+    }
+    p {
+        margin: 0;
+    }
+}

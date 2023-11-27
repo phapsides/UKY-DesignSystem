@@ -1,0 +1,51 @@
+{% from 'heading/macro.njk' import bcHeading %}
+{% from 'button/macro.njk' import bcButton %}
+
+<article
+	data-module="bc-card"
+	class="bc-card{%- if params.donate %} bc-card--donate{% endif %}{%- if params.event %} bc-card--event{% endif %}{%- if params.profile %} bc-card--profile{% endif %} {%- if params.classes %} {{ params.classes }}{% endif %}"
+	{%- if params.size %} data-size="{{ params.size }}"{% endif %}
+	{%- if params.theme %} data-theme="{{ params.theme }}"{% endif %}
+	{%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+	{%- if params.image %} data-layout="extended"{% endif %}
+>
+	{%- if params.heading %}
+		<header class="bc-card__header">
+			{{ bcHeading(params.heading) }}
+		</header>
+	{%- endif %}
+	<div class="bc-card__inner">
+		{%- if params.donate %}
+			<div class="bc-card__body">
+				<div class="bc-card__donate-amount">
+					<p class="bc-card__donate-label">Total</p>
+					<p class="bc-card__donate-data">
+						{%- if params.donateDate %}
+							£{{ params.donateAmount }}
+						{%- else %}
+							£0
+						{%- endif %}
+					</p>
+				</div>
+				{%- if params.donateDate %}
+					<div class="bc-card__donate-date">
+						<p class="bc-card__donate-label">Last donation</p>
+						<p class="bc-card__donate-data">{{ params.donateDate }}</p>
+					</div>
+				{%- else %}
+					{{ caller() }}
+				{%- endif %}	
+			</div>
+		{%- endif %}
+		{%- if caller and not params.donate %}
+			<div class="bc-card__body">
+				{{ caller() }}
+			</div>
+		{%- endif %}
+		{%- if params.button %}
+			<div class="bc-card__action">
+				{{ bcButton(params.button) }}
+			</div>
+		{%- endif %}
+	</div>
+</article>

@@ -1,0 +1,163 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "grid/macro.njk" import bcGrid %}
+	{% from "tab/macro.njk" import bcTab, bcTabPanel %}
+	{% from "grants-card/macro.njk" import bcGrantsCard %}
+	{% from "available-grants-card/macro.njk" import bcAvailableGrantsCard %}
+
+	<div class="ip-grants-and-programmes">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Grants and programmes'
+		}) }}
+
+		<div class="fs-!-margin-top-4">
+			{{ bcHeading({
+				classes: 'fs-!-margin-bottom-2',
+				hierarchy: 2,
+				text: 'Your Grants & Programmes'
+			}) }}
+			{% call bcTab({
+				heading: 'Contents',
+				tablist: [
+					{ for: 'Panel1', text: 'In progress (4)' },
+					{ for: 'Panel2', text: 'Past (1)' }
+				]
+			}) %}
+				{% call bcTabPanel({
+					id: 'Panel1'
+				}) %}
+					{% call bcGrid({
+						size: '1/1'
+					}) %}
+						{{ bcGrantsCard({
+							variant: 'in-progress',
+							status: 'In progress',
+							heading: {
+								hierarchy: 3,
+								text: 'Grant/Programme name'
+							},
+							reference: 'XXXXXX' 
+						}) }}
+
+						{{ bcGrantsCard({
+							variant: 'under-review',
+							status: 'Under review',
+							heading: {
+								hierarchy: 3,
+								text: 'Grant/Programme name'
+							},
+							reference: 'XXXXXX' 
+						}) }}
+
+						{{ bcGrantsCard({
+							variant: 'successful',
+							status: 'Successful',
+							heading: {
+								hierarchy: 3,
+								text: 'Grant/Programme name'
+							},
+							reference: 'XXXXXX' 
+						}) }}
+
+						{% call bcGrantsCard({
+							variant: 'unsuccessful',
+							status: 'Unsuccessful',
+							heading: {
+								hierarchy: 3,
+								text: 'Grant/Programme name'
+							},
+							reference: 'XXXXXX' 
+						}) %}
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</p>
+						{% endcall %}
+					{% endcall %}
+				{% endcall %}
+				{% call bcTabPanel({
+					id: 'Panel2'
+				}) %}
+					{% call bcGrid({
+						size: '1/1'
+					}) %}
+						{% call bcGrantsCard({
+							variant: 'unsuccessful',
+							status: 'Unsuccessful',
+							heading: {
+								hierarchy: 3,
+								text: 'Grant/Programme name'
+							},
+							reference: 'XXXXXX' 
+						}) %}
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</p>
+						{% endcall %}
+					{% endcall %}
+				{% endcall %}
+			{% endcall %}
+		</div>
+
+		<div class="fs-!-margin-top-8">
+			{{ bcHeading({
+				classes: 'fs-!-margin-bottom-2',
+				hierarchy: 2,
+				text: 'Grants available (2)'
+			}) }}
+			{% call bcGrid({
+				size: '1/1'
+			}) %}
+				{% call bcAvailableGrantsCard({
+					heading: {
+						hierarchy: 3,
+						text: 'Grant/Programme name'
+					},
+					reference: 'XXXXXX' 
+				}) %}
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				{% endcall %}
+
+				{% call bcAvailableGrantsCard({
+					heading: {
+						hierarchy: 3,
+						text: 'Grant/Programme name'
+					},
+					reference: 'XXXXXX' 
+				}) %}
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				{% endcall %}
+			{% endcall %}
+		</div>
+		
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes', current: true },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

@@ -1,0 +1,63 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "objects/lists";
+
+.bc-prose {
+	margin-bottom: 1.5rem;
+	> * {
+		margin-top: 0;
+		margin-bottom: 0;
+		display: block;
+	}
+	> * + * {
+		margin-top: 1rem;
+	}
+	:first-child {
+		margin-top: 0;
+	}
+	:last-child {
+		margin-bottom: 0;
+	}
+	p {
+		&.small {
+			@include typography.fs-font-size(body-small);
+		}
+		a {
+			margin: 0;
+			display: inline-block;
+		}
+	}
+	ul {
+		@extend .fs-list;
+		&.bc-list--dashed {
+			> li {
+				padding: 0 0 0 1rem;
+				&:before {
+					content: "-";
+					display: inline-block;
+					margin: 0 0 0 -1rem;
+					margin-right: 0.5rem;
+				}
+			}
+		}
+		li + li {
+			margin: 0;
+		}
+	}
+	dl {
+		@extend .fs-list;
+		> dd {
+			margin-left: 1rem;
+			&:before {
+				content: "-";
+				display: inline-block;
+				margin: 0 0 0 -1rem;
+				margin-right: 0.5rem;
+			}
+		}
+	}
+	address {
+		font-style: normal;
+	}
+}

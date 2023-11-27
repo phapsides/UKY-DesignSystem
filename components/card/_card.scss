@@ -1,0 +1,113 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/media-queries";
+@use "helpers/typography";
+@use "heading/heading";
+@use "sass:math";
+
+.bc-card {
+	$self: &;
+	$card-padding: 2rem;
+	position: relative;
+	padding: $card-padding;
+	background: colors.fs-color(white);
+	&__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-auto-rows: 4fr 1fr;
+		grid-gap: 2.5rem;
+		margin-top: 0.5rem;
+		@include media-queries.fs-mq($from: tablet) {
+			grid-template-columns: 2fr 1fr;
+			grid-auto-rows: 1fr;
+		}
+	}
+	&__body {
+		margin-top: 0;
+		@include media-queries.fs-mq($from: tablet) {
+			margin-top: auto;
+		}
+		.bc-prose {
+			margin: 0;
+		}
+	}
+	&__action {
+		margin-top: auto;
+		margin-left: 0;
+		@include media-queries.fs-mq($from: tablet) {
+			margin-left: auto;
+		}
+		.bc-button {
+			width: 100%;
+			@include media-queries.fs-mq($from: tablet) {
+				width: auto;
+			}
+		}
+	}
+	&__donate-date {
+		margin-left: auto;
+	}
+	&__donate-label,
+	&__donate-data {
+		@include typography.fs-font-stack(sans, $weight: 700);
+		margin: 0;
+		color: colors.fs-color(brand-primary);
+	}
+	&__donate-data {
+		@extend .bc-heading--title;
+	}
+	&--profile {
+		color: colors.fs-color(white);
+		background-color: colors.fs-color(brand-primary);
+		.bc-heading {
+			color: colors.fs-color(white)	
+		}
+	}
+	&--event-default {
+		width: calc(100% - 0.5rem);
+		border-color: #bb0c7b;
+		box-shadow: 0.5rem 0.5rem 0 #bb0c7b;
+		padding-bottom: $card-padding + 0.35rem; // + box-shadow width
+	}
+	&--donate {
+		.bc-card__body {
+			display: flex;
+		}
+		.bc-card__action {
+			margin-left: 0;
+		}
+	}
+}
+
+
+.bc-card {
+	&[data-size="1/2"] {
+		.bc-card__inner {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-auto-rows: 4fr 1fr;
+			grid-gap: 1rem;
+			margin-top: 0.5rem;
+			@include media-queries.fs-mq($from: tablet) {
+				grid-auto-rows: 6fr 1fr;
+			}
+		}
+		.bc-card__body {
+			margin-top: 0;
+		}
+		.bc-card__action {
+			margin-top: auto;
+			margin-left: 0;
+			.bc-button {
+				width: 100%;
+			}
+		}
+		.bc-card__donate-amount,
+		.bc-card__donate-date {
+			margin: 1rem 0;
+		}
+		.bc-card__donate-date {
+			margin-bottom: 0;
+		}
+	}
+}

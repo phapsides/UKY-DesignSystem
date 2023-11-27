@@ -1,0 +1,42 @@
+@use "@querkmachine/felafel/src/scss/settings"; 
+@use "helpers/media-queries";
+@use "heading/heading";
+@use "helpers/colors";
+
+
+.bc-table {
+	$self: &;
+	margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+	&__caption {
+        @extend .bc-heading--title;
+		display: table-caption;
+		text-align: left;
+		margin: 0.25em 0;
+	}
+	&__header,
+	&__cell {
+		padding: 1rem 1rem 1rem 0;
+		text-align: left;
+		vertical-align: top;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+    &__header {
+        @extend .bc-heading--small-subtitle;
+        display: table-cell;
+    }
+	&__head {
+		#{$self}__header {
+			border-bottom: 2.5px solid colors.fs-color(brand-primary);
+			vertical-align: top;
+		}
+	}
+    tr {
+        border-bottom: 1px solid colors.fs-color(brand-primary);
+    }
+}

@@ -1,0 +1,169 @@
+{% extends '@t-centered' %}
+
+
+{% block stepIndicator %}
+    {% from 'icon/macro.njk' import bcIcon %}
+    
+    <div data-module="bc-step-indicator" class="bc-step-indicator">
+        <div class="bc-step-indicator__step complete">
+            <div class="bc-step-indicator__step-number">
+                {{ bcIcon({
+                    variant: 'check'
+                }) }}
+            </div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 1</strong></p>
+                <p>Eligibility quiz</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line complete"></div>
+        <div class="bc-step-indicator__step" aria-current="step">
+            <div class="bc-step-indicator__step-number">
+                2
+            </div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 2</strong></p>
+                <p>Contact details</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line"></div>
+        <div class="bc-step-indicator__step">
+            <div class="bc-step-indicator__step-number">3</div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 3</strong></p>
+                <p>About your organisation</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line"></div>
+        <div class="bc-step-indicator__step">
+            <div class="bc-step-indicator__step-number">4</div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 4</strong></p>
+                <p>Your finances</p>
+            </div> 
+        </div>
+    </div>   
+{% endblock %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "form/macro.njk" import bcForm %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "input/macro.njk" import bcInput %}
+    {% from "date-input/macro.njk" import bcDateInput %}
+
+	<div class="ip-eligibility-quiz">
+        {{ bcButton({
+            classes: 'fs-!-margin-block-6',
+            href: '#',
+            text: 'Back to grants'
+        }) }} 
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Grant/Programme name'
+		}) }}
+        {# TODO: Ammend the below implementation #}
+        {{ bcDateInput({
+            idPrefix: 'ApplyBy',
+            attributes: { 
+                'hidden': 'hidden'
+            },
+            day: {
+                name: 'Day',
+                autocomplete: 'bday-day',
+                value: 5
+            },
+            month: {
+                name: 'Month',
+                autocomplete: 'bday-month',
+                value: 6
+            },
+            year: {
+                name: 'Year',
+                autocomplete: 'bday-year',
+                value: 2022
+            },
+            legend: {
+                text: 'Apply by'
+            },
+            hint: { 
+                text: '05/06/2022' 
+            }
+        }) }}
+
+		{% call bcForm({
+			classes: 'fs-!-margin-top-8',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+			{{ bcHeading({
+                hierarchy: 2,
+                text: 'Your contact details'
+            }) }}
+            {{ bcInput({
+                name: 'ExampleInput',
+                label: { 
+                    text: 'First name' 
+                },
+                value: 'Michelle',
+                required: true
+            }) }}
+            {{ bcInput({
+                name: 'ExampleInput',
+                label: { 
+                    text: 'Last name' 
+                },
+                value: 'Baker',
+                required: true
+            }) }}
+            {{ bcDateInput({
+                idPrefix: 'DOB',
+                day: {
+                    name: 'Day',
+                    autocomplete: 'bday-day',
+                    value: 28
+                },
+                month: {
+                    name: 'Month',
+                    autocomplete: 'bday-month',
+                    value: 11
+                },
+                year: {
+                    name: 'Year',
+                    autocomplete: 'bday-year',
+                    value: 2020
+                },
+                legend: {
+                    text: 'Date of birth'
+                },
+                hint: { 
+                    text: 'e.g. 31/01/1978' 
+                }
+            }) }}
+            {{ bcInput({
+                name: 'ExampleInput',
+                label: { 
+                    text: 'Phone number' 
+                }
+            }) }}
+            <div class="bc-button-group">
+                {{ bcButton({
+                    classes: 'fs-!-margin-top-7',
+                    appearance: 'primary',
+                    type: 'submit',
+                    text: 'Next step'
+                }) }}
+                
+                {{ bcButton({
+                     classes: 'fs-!-margin-top-5',
+                    appearance: 'link',
+                    text: 'Save and close'
+                }) }}
+            </div>
+
+		{% endcall %}
+	</div>
+
+{% endblock %}

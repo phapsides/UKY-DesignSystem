@@ -1,0 +1,147 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "pagination/macro.njk" import bcPagination %}
+	{% from "grid/macro.njk" import bcGrid %}
+	{% from "resource-card/macro.njk" import bcResourceCard %}
+
+	<div class="ip-communication-preferences">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Resources'
+		}) }}
+		{% call bcGrid({
+			size: '1/2'
+		}) %}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+			{{ bcResourceCard({
+				heading: {
+					text: 'Coca-Cola European Partners',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/124/103'),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+				}
+			}) }}
+		{% endcall %}
+		 {{ bcPagination({
+			classes: 'fs-!-margin-top-6',
+			currentPage: 1,
+			totalPages: 2
+		}) }}
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources', current: true },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

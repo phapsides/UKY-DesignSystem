@@ -1,0 +1,25 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+
+.bc-image {
+	position: relative;
+	&__image {
+		width: 100%;
+		height: auto;
+	}
+	&__caption {
+		background: colors.fs-color(brand-secondary);
+		color: colors.fs-color(white);
+		width: 100%;
+		padding: 1rem;
+		position: absolute;
+		bottom: 0;
+		background: rgba(187,14,23,0.54);
+		text-align: right;
+		p {
+			@include typography.fs-font-size(body-small);
+			margin: 0 0 0 auto;
+		}
+	}
+}

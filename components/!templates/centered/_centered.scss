@@ -1,0 +1,36 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/media-queries";
+@use "helpers/spacing";
+@use "core/global";
+
+
+.it-centered {
+	margin-bottom: 3rem;
+    margin-top: 6rem;
+	@include media-queries.fs-mq($from: tablet) {
+		margin-bottom: 8rem;
+    	margin-top: 12rem;
+	}
+	&__document {
+		max-width: 40rem;
+    	margin: auto;
+	}
+	.bc-form-field-group {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: 1fr;
+		@include media-queries.fs-mq($from: tablet) {
+			grid-gap: 3rem;
+			grid-template-columns: 1fr 1fr;
+		}
+		.bc-form-row {
+			&:first-of-type {
+				@include spacing.fs-responsive-margin(5, $direction: block-start);
+			}
+		}
+	}
+	.bc-step-indicator {
+		max-width: 40rem;
+		margin-inline: auto;
+	}
+}

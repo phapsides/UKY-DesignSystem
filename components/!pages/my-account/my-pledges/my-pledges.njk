@@ -1,0 +1,71 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "table/macro.njk" import bcTable %}
+	{% from "card/macro.njk" import bcCard %}
+
+	<div class="ip-my-donations">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'My pledges'
+		}) }}
+
+		{% call bcCard({
+			classes: 'fs-!-margin-bottom-6',
+			donate: true,
+			donateAmount: '550',
+			donateDate: '2 Feb, 2022'
+		}) %}
+			{% call bcProse() %}
+				
+			{% endcall %}
+		{% endcall %}
+
+		{{ bcTable({
+			responsive: true,
+			caption: 'All open pledges',
+			head: [
+				{ text: 'Date', format: 'date' },
+				{ text: 'Type' },
+				{ text: 'Value (£)', format: 'numeric' }
+			],
+			body: [
+				[
+					{ text: '2 February 2022', format: 'date'  },
+					{ text: 'Campaign name' },
+					{ text: '£300', format: 'numeric' }
+				],
+				[
+					{ text: '22 December 2021', format: 'date'  },
+					{ text: 'Event name' },
+					{ text: '£250', format: 'numeric' }
+				]
+			]
+		}) }}
+		
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges', current: true },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

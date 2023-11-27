@@ -1,0 +1,144 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "grid/macro.njk" import bcGrid %}
+	{% from "card/macro.njk" import bcCard %}
+	{% from "organisation-card/macro.njk" import bcOrganisationCard %}
+
+	<div class="ip-organisations">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Organisations'
+		}) }}
+
+		{% call bcGrid({
+			classes: 'ip-dashboard__section',
+			size: '1/1'
+		}) %}
+
+			{% call bcCard({
+				profile: true,
+				heading: {
+					text: 'Join an organisation',
+					hierarchy: 2
+				},
+				button: {
+					appearance: 'primary',
+					text: 'Join now',
+					href: '#'
+				}
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+				{% endcall %}
+			{% endcall %}
+		{% endcall %}
+
+		<div class="fs-!-margin-block-8">
+			{{ bcHeading({
+				classes: 'fs-!-margin-bottom-2',
+				hierarchy: 2,
+				text: 'Explore UK Youth organisations'
+			}) }}
+			{% call bcProse() %}
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+			{% endcall %}
+			<div id="bc-map"></div>
+		</div>
+
+		{% call bcGrid({
+			classes: 'ip-dashboard__section',
+			size: '1/1'
+		}) %}
+			{{ bcHeading({
+				hierarchy: 2,
+				text: 'My organisations'
+			}) }}
+			{{ bcOrganisationCard({
+				heading: {
+					hierarchy: 3,
+					text: 'Organisation name'
+				},
+				organisationType: 'XXXXXX', 
+				organisationAddress: '8th Floor, Kings Buildings, 16 Smith Square London SW1P 3HQ' 
+			}) }}
+			{{ bcOrganisationCard({
+				heading: {
+					hierarchy: 3,
+					text: 'Organisation name'
+				},
+				organisationType: 'XXXXXX', 
+				organisationAddress: '8th Floor, Kings Buildings, 16 Smith Square London SW1P 3HQ' 
+			}) }}
+			
+		{% endcall %}
+
+
+		
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations', current: true },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		function initMap() {
+			const myMapCenter = {
+				lat: 40.785091, 
+				lng: -73.968285
+			};
+
+			// Create a map object and specify the DOM element for display.
+			const map = new google.maps.Map(document.getElementById('bc-map'), {
+				center: myMapCenter,
+				zoom: 14
+			});
+
+
+			function markStore(storeInfo){
+
+				// Create a marker and set its position.
+				const marker = new google.maps.Marker({
+					map: map,
+					position: storeInfo.location
+				});
+			}
+
+			const stores = [{
+				location: {
+					lat: 40.785091, 
+					lng: -73.968285
+				}
+			}];
+
+			stores.forEach(function(store){
+				markStore(store);
+			});
+
+		}
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBZd0br-aQ1AVU5MMIjDErpBjuW7Piy5c&callback=initMap" async defer></script>
+{% endblock %}

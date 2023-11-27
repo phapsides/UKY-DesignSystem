@@ -1,0 +1,10 @@
+@use "helpers/colors";
+
+.ip-donate {
+	.bc-choice-selector-card__inner {
+		min-height: 10.75rem;
+	}
+	.bc-button {
+		float: right;
+	}
+}

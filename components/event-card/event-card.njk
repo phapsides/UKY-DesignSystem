@@ -1,0 +1,29 @@
+{% from "event-card/macro.njk" import bcEventCard %}
+{% from "prose/macro.njk" import bcProse %}
+{% from "grid/macro.njk" import bcGrid %}
+
+
+{% call bcGrid({
+    size: '1/1'
+}) %}
+    {% call bcEventCard({
+        horizontal: true,
+        href: '#',
+        heading: {
+            text: 'Getting started and using LinkedIn for young people aged 16-25',
+            hierarchy: 3
+        },
+        image: {
+            src: ('/images/temp/temp-background.webp' | path),
+            alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+            imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+        },
+        date: '18 November 2021',
+        time: '10:00'
+        
+    }) %}
+        {% call bcProse() %}
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        {% endcall %}
+    {% endcall %}
+{% endcall %}

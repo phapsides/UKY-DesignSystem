@@ -1,0 +1,32 @@
+{% extends '@t-centered' %}
+
+{% block body %}
+    {% from "heading/macro.njk" import bcHeading %}
+	{% from "button/macro.njk" import bcButton %}
+    {% from "icon/macro.njk" import bcIcon %}
+
+    <div class="ip-basket ip-basket--empty">
+
+        {{ bcIcon({
+            variant: 'basket-shopping'
+        }) }}
+
+        {{ bcHeading({
+            hierarchy: 1,
+            text: 'Your basket is empty'
+        }) }}
+        {% call bcProse() %}
+            <p>	
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        {% endcall %}
+        {{ bcButton({
+            appearance: 'primary',
+            type: 'submit',
+            href: '#',
+            text: 'Go to homepage'
+        }) }}
+
+	</div>
+
+{% endblock %}

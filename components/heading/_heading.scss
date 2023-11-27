@@ -1,0 +1,45 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/typography";
+@use "helpers/colors";
+@use "helpers/media-queries";
+
+
+.bc-heading--jumbotron,
+.bc-heading--title,
+.bc-heading--subtitle,
+.bc-heading--small-subtitle,
+.bc-heading--byline {
+	@include typography.fs-font-stack(sans, $weight: bold);
+	display: block;
+	font-style: normal;
+	margin: 0;
+	color: colors.fs-color(brand-primary);
+}
+
+
+.bc-heading {
+	&--jumbotron {
+		@include typography.fs-font-size(h1-mobile);
+		@include media-queries.fs-mq($from: tablet) {
+			@include typography.fs-font-size(h1);
+		}
+	}
+	&--title {
+		@include typography.fs-font-size(h2-mobile);
+		@include media-queries.fs-mq($from: tablet) {
+			@include typography.fs-font-size(h2);
+		}
+	}
+	&--subtitle {
+		@include typography.fs-font-size(h3-mobile);
+		@include media-queries.fs-mq($from: tablet) {
+			@include typography.fs-font-size(h3);
+		}
+	}
+	&--small-subtitle {
+		@include typography.fs-font-size(h4);
+	}
+	&--byline {
+		@include typography.fs-font-size(h5);
+	}
+}

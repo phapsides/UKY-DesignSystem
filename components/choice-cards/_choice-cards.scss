@@ -1,0 +1,70 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/a11y";
+@use "helpers/colors";
+@use "helpers/spacing";
+@use "helpers/typography";
+
+@use "sass:color";
+
+.bc-choice-cards {
+	$self: &;
+	&__item {
+		@include spacing.fs-responsive-margin(2, $direction: block-start);
+		position: relative;
+	}
+	&__input {
+		opacity: 0;
+		position: absolute;
+		&:focus {
+			+ #{$self}__body {
+				@include a11y.fs-focus-ring;
+			}
+		}
+		&:checked {
+			+ #{$self}__body {
+				color: colors.fs-color(white);
+				background-color: colors.fs-color(brand-primary);
+			}
+		}
+		&:disabled {
+			+ #{$self}__body {
+				border-color: colors.fs-color(furniture);
+				color: colors.fs-color(text);
+				background-color: colors.fs-color(furniture);
+			}
+		}
+		&:checked:disabled {
+			+ #{$self}__body {
+				$color: color.adjust(colors.fs-color(furniture), $lightness: -20%);
+				border-color: $color;
+				background-color: $color;
+			}
+		}
+	}
+	&__body {
+		@include spacing.fs-responsive-padding(2, $direction: block);
+		@include spacing.fs-responsive-padding(3, $direction: inline);
+		display: block;
+		border-width: settings.$fs-border-width-form-element;
+		border-style: solid;
+		border-color: colors.fs-color(brand-primary);
+		border-radius: settings.$fs-border-radius;
+	}
+	&__label {
+		@include typography.fs-font-stack(sans, $weight: bold);
+		@include typography.fs-font-size(h3);
+		cursor: pointer;
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			cursor: pointer;
+		}
+	}
+	&__child-content {
+		position: relative;
+		.bc-label {
+			color: inherit;
+		}
+	}
+}

@@ -1,0 +1,123 @@
+{% extends '@t-left-sidebar' %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "event-card/macro.njk" import bcEventCard %}
+	{% from "grid/macro.njk" import bcGrid %}
+	{% from "button/macro.njk" import bcButton %}
+
+	<div class="ip-my-events">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'My events'
+		}) }}
+
+		{% call bcGrid({
+			size: '1/1',
+			classes: 'fs-!-margin-top-4 fs-!-margin-bottom-8'
+		}) %}
+			{{ bcHeading({
+				hierarchy: 2,
+				text: 'You have 3 upcoming events'
+			}) }}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('/images/temp/temp-background.webp' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('/images/temp/temp-background.webp' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('/images/temp/temp-background.webp' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+		{% endcall %}
+
+		<div class="ip-my-events__past-events">
+			{{ bcHeading({
+				hierarchy: 2,
+				text: 'Past events'
+			}) }}
+			{% call bcProse() %}
+				<p>Looks like you haven’t attended any!</p>
+				<p class="fs-!-margin-top-0">Get started on finding an exciting event near you.</p>
+			{% endcall %}
+			{{ bcButton({
+                appearance: 'primary',
+                text: 'Find an event'
+            }) }}
+		</div>
+	</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard' },
+			{ href: '#', text: 'My events', current: true },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

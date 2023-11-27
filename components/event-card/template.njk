@@ -1,0 +1,94 @@
+{% from 'image/macro.njk' import bcImage %}
+{% from 'heading/macro.njk' import bcHeading %}
+{% from 'icon/macro.njk' import bcIcon %}
+{% from 'button/macro.njk' import bcButton %}
+
+<article
+    data-module="bc-event-card"
+    class="bc-event-card{%- if params.hero %} bc-event-card--hero{% endif %} {%- if params.classes %} {{ params.classes }}{% endif %}"
+    {%- if params.horizontal %} data-horizontal{%- endif %}
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+    {%- if params.image %}
+        <div class="bc-event-card__media">
+            {{ bcImage(params.image) }}
+        </div>
+    {%- endif %}
+    <div class="bc-event-card__body">
+        {%- if params.heading %}
+            <header class="bc-event-card__header">
+                {%- if params.href %}
+                    <a class="bc-event-card__link" href="{{ params.href }}">
+                        {{ bcHeading(params.heading) }}
+                    </a>
+                {%- else %}
+                    {{ bcHeading(params.heading) }}
+                {%- endif %}
+            </header>
+        {%- endif %}
+        {%- if caller %}
+            <div class="bc-event-card__main">
+                {{ caller() }}
+            </div>
+        {%- endif %}
+        <div class="bc-event-card__toolbar">
+            <dl class="bc-description-list">
+                {%- if params.date %}
+                    <div class="bc-description-list__item">
+                        <dt class="bc-description-list__key">
+                            <span class="sr-only">Date</span>
+                            {{ bcIcon({
+                                variant: 'calendar-days'
+                            }) }}
+                        </dt>
+                        <dd class="bc-description-list__value">	
+                            <time>
+                                {{ params.date }}
+                            </time>
+                        </dd>
+                    </div>
+                {%- endif %}
+                {%- if params.time %}
+                    <div class="bc-description-list__item">
+                        <dt class="bc-description-list__key">
+                            <span class="sr-only">Time</span>
+                            {{ bcIcon({
+                                variant: 'clock'
+                            }) }}
+                        </dt>
+                        <dd class="bc-description-list__value">	
+                            <time>
+                                {{ params.time }} GMT
+                            </time>
+                        </dd>
+                    </div>
+                {%- endif %}
+                {%- if params.location %}
+                    <div class="bc-description-list__item">
+                        <dt class="bc-description-list__key">
+                            <span class="sr-only">Location</span>
+                            {{ bcIcon({
+                                variant: 'location-dot'
+                            }) }}
+                        </dt>
+                        <dd class="bc-description-list__value">	
+                            <time>
+                                {{ params.location }}
+                            </time>
+                        </dd>
+                    </div>
+                {%- endif %}
+            </dl>
+        </div>
+        {%- if params.button %}
+            <footer class="bc-event-card__cta">
+                {{ bcButton(params.button) }}
+                {%- if params.calendar %}
+                    {{ bcButton({
+                        href: '#',
+                        text: 'Add to calendar'
+                    }) }} 
+                {%- endif %}
+            </footer>
+        {%- endif %}
+    </div>
+</article>

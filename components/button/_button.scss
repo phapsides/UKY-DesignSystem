@@ -1,0 +1,79 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "@querkmachine/felafel/src/scss/helpers/measurements";
+@use "helpers/colors";
+@use "helpers/reset";
+@use "helpers/typography";
+
+.bc-button {
+	@include reset.fs-reset-button;
+	@include typography.fs-font-stack(sans, $weight: 700);
+	@include typography.fs-font-size(button);
+	display: inline-block;
+	padding: 0.25rem 1rem;
+	text-align: center;
+	border: 0.15rem solid;
+	text-decoration: none;
+	background: colors.fs-color(white);
+	transition: all .1s;
+	position: relative;
+	user-select: none;
+	cursor: pointer;
+	&:not(:disabled) {
+		&[data-appearance="primary"] {
+			color: colors.fs-color(brand-secondary);
+			border-color: colors.fs-color(brand-secondary);
+			box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-secondary);
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 0 colors.fs-color(brand-secondary);
+			}
+		}
+		&[data-appearance="secondary"] {
+			color: colors.fs-color(brand-primary);
+			border-color: colors.fs-color(brand-primary);
+			box-shadow: 0.35rem 0.35rem 0 colors.fs-color(brand-primary);
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 0 colors.fs-color(brand-primary);
+			}
+		}
+		&[data-appearance="link"] {
+			@include reset.fs-reset-button;
+			@include typography.fs-font-stack(sans, $weight: 700);
+			color: colors.fs-color(link);
+			text-decoration: underline;
+			&:hover {
+				color: colors.fs-color(link-hover);
+			}
+		}
+		&[data-appearance="reverse"] {
+			background: inherit;
+			color: colors.fs-color(white);
+			border-color: colors.fs-color(white);
+			box-shadow: 0.35rem 0.35rem 0 colors.fs-color(white);
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 0 colors.fs-color(white);
+			}
+		}
+		&[data-appearance="disabled"] {
+			color: settings.$fs-body-background-color;
+			border-color: settings.$fs-body-background-color;
+			box-shadow: 0.35rem 0.35rem 0 settings.$fs-body-background-color;
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 0 colors.fs-color(brand-secondary);
+			}
+		}
+	}
+	&:disabled {
+		cursor: default;
+		color: colors.fs-color(text);
+		border-color: colors.fs-color(text);
+		box-shadow: 0.35rem 0.35rem 0 colors.fs-color(text);
+		background: settings.$fs-body-background-color;
+	}
+	&[data-layout="block"] {
+		inline-size: 100%;
+	}
+}

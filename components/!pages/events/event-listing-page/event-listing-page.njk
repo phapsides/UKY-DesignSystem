@@ -1,0 +1,222 @@
+{% extends '@t-event-listing' %}
+
+
+{% block beforeTemplate %}
+	{% from "page-header/macro.njk" import bcPageHeader %}
+
+	{{ bcPageHeader({
+		heading: {
+			text: 'Events',
+			hierarchy: 1
+		},
+		image: {
+			src: ('/images/svg-background/red.svg' | path)
+		}
+	}) }}
+
+{% endblock %}
+
+
+{% block beforeInner %}
+	{% from "event-card/macro.njk" import bcEventCard %}
+    
+	<div class="bc-container__inner">
+		{% call bcEventCard({
+			horizontal: true,
+			hero: true,
+			href: '#',
+			heading: {
+				text: 'UK Youth Fund Thriving Minds - Meet the Funder Application Webinar',
+				hierarchy: 2
+			},
+			image: {
+				src: ('https://picsum.photos/652/530' | path),
+				alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.'
+			},
+			button: {
+				appearance: 'primary',
+				text: 'See event details',
+				href: '#'
+			},
+			date: '18 November 2021',
+			time: '10:00'
+		}) %}
+			{% call bcProse() %}
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+			{% endcall %}
+		{% endcall %}
+	</div>
+{% endblock %}
+
+
+{% block body %}
+	{% from "event-card/macro.njk" import bcEventCard %}
+	{% from "grid/macro.njk" import bcGrid %}
+	{% from "pagination/macro.njk" import bcPagination %}
+	{% from "form/macro.njk" import bcForm %}
+	{% from "select/macro.njk" import bcSelect %}
+
+	<div class="ip-event-listing">
+
+		{% call bcForm({
+			classes: 'fs-!-margin-bottom-2',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+			<p class="ip-event-listing__filter-results">
+				Showing results 1–10 of 840
+			</p>
+			{{ bcSelect({
+				name: "ExampleSelect",
+				label: { text: "Sort by" },
+				options: [
+					{ value: "", text: "Please select" }
+				]
+			}) }}
+		{% endcall %}
+		{% call bcGrid({
+			size: '1/1'
+		}) %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/246/166' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/246/166' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/246/166' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/246/166' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/246/166' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcEventCard({
+				horizontal: true,
+				href: '#',
+				heading: {
+					text: 'Getting started and using LinkedIn for young people aged 16-25',
+					hierarchy: 3
+				},
+				image: {
+					src: ('https://picsum.photos/246/166' | path),
+					alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+					imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+				},
+				date: '18 November 2021',
+				time: '10:00'
+				
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+		{% endcall %}
+        {{ bcPagination({
+			classes: 'fs-!-margin-top-6',
+			currentPage: 1,
+			totalPages: 2
+		}) }}
+	</div>
+{% endblock %}
+
+
+{% block sidebar %}
+
+	{% from "filters/macro.njk" import bcFilters %}
+	
+	{{ bcFilters({
+		heading: {
+			text: 'Filter events',
+			hierarchy: 3
+		}
+	}) }}
+
+{% endblock %}

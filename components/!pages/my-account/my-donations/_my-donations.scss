@@ -1,0 +1,39 @@
+@use "helpers/media-queries";
+
+.ip-my-donations {
+    .bc-card {
+        .bc-card__action {
+            position: relative;
+            top: -0.35rem;
+            margin-left: 0;
+            @include media-queries.fs-mq($from: tablet) {
+                margin-left: auto;
+            }
+        }
+    }
+    .bc-card__inner {
+        grid-auto-rows: auto;
+        @include media-queries.fs-mq($from: tablet) {
+            grid-auto-rows: 4fr 1fr;
+        }
+    }
+    .bc-card__body {
+        flex-direction: column;
+        @include media-queries.fs-mq($from: tablet) {
+            flex-direction: row;
+        }
+    }
+    .bc-card__donate-date {
+        margin-left: 0;
+        @include media-queries.fs-mq($from: tablet) {
+            margin-left: auto;
+        }
+    }
+    .bc-card__donate-amount,
+    .bc-card__donate-date {
+        margin-bottom: 1rem;
+        @include media-queries.fs-mq($from: tablet) {
+            margin-bottom: 0;
+        }
+    }
+}

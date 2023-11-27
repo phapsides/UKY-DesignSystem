@@ -1,0 +1,10 @@
+preview: false
+context:
+  title: Welcome to the <strong>UK Youth</strong>
+  blurb: |
+    <p>Registering with UKY allows you to:</p>
+    <ul>
+        <li>Join UKY as a member</li>
+        <li>Book onto UKY events</li>
+        <li>Receive regular updates on UKY news</li>
+    </ul>

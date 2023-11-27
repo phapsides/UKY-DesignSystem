@@ -1,0 +1,47 @@
+@use "@querkmachine/felafel/src/scss/settings";
+
+.bc-filters {
+    .bc-button {
+        display: block;
+    }
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        [data-appearance="primary"] {
+            width: 100%;
+            align-items: center;
+            display: flex;
+        }
+    }
+    &__body {
+        height: 0;
+		overflow: hidden;
+  		transition: height .5s ease-in-out;
+      
+    }
+    .bc-label__optional {
+        display: none;
+    }
+    .bc-heading {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .bc-icon {
+            margin-left: auto;
+            transition: all .3s linear;
+        }
+    }
+    &.active {
+        .bc-filters__body {
+            height: auto;
+        }
+        .bc-heading {
+            .bc-icon  {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+}
+
+

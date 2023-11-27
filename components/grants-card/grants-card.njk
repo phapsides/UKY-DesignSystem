@@ -1,0 +1,46 @@
+{% from "grants-card/macro.njk" import bcGrantsCard %}
+
+
+{{ bcGrantsCard({
+    variant: 'in-progress',
+    status: 'In progress',
+    heading: {
+        hierarchy: 3,
+		text: 'Grant/Programme name'
+	},
+    reference: 'XXXXXX' 
+}) }}
+
+{{ bcGrantsCard({
+    variant: 'under-review',
+    status: 'Under review',
+    heading: {
+        hierarchy: 3,
+		text: 'Grant/Programme name'
+	},
+    reference: 'XXXXXX' 
+}) }}
+
+{{ bcGrantsCard({
+    variant: 'successful',
+    status: 'Successful',
+    heading: {
+        hierarchy: 3,
+		text: 'Grant/Programme name'
+	},
+    reference: 'XXXXXX' 
+}) }}
+
+{% call bcGrantsCard({
+    variant: 'unsuccessful',
+	status: 'Unsuccessful',
+    heading: {
+        hierarchy: 3,
+		text: 'Grant/Programme name'
+	},
+    reference: 'XXXXXX' 
+}) %}
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+{% endcall %}

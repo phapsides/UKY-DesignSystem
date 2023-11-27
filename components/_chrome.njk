@@ -1,0 +1,23 @@
+{% from 'header/macro.njk' import bcHeader %}
+{% from 'footer/macro.njk' import bcFooter %}
+{% from 'prose/macro.njk' import bcProse %}
+
+
+<div class="wrapper">
+    <div class="site">
+        {{ bcHeader({
+           
+        }) }}
+        <main id="content">
+            {% block main %}
+            
+            {% endblock %}
+        </main>
+        
+        {{ bcFooter({
+           
+        }) }}
+    </div>
+</div>
+
+{% block scripts %}{% endblock %}

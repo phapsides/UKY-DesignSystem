@@ -1,0 +1,104 @@
+{% from "logo/macro.njk" import bcLogo %}
+{% from "grid/macro.njk" import bcGrid %}
+{% from 'prose/macro.njk' import bcProse %}
+
+
+<footer data-module="bc-footer" class="bc-footer fs-!-padding-top-6 fs-!-padding-bottom-2 {%- if params.classes %} {{ params.classes }}{% endif %}" {%- for
+    attribute, value in params.attributes %} {{ attribute }}="{{ value }}" {% endfor %}
+>
+    <div class="bc-container">
+        <div class="bc-container__inner">
+            {% call bcGrid({
+                size: '1/3',
+                classes: 'bc-footer__row fs-!-margin-bottom-10'
+            }) %}    
+                {{ bcLogo({
+                    classes: 'uky-logo--footer fs-!-margin-bottom-4',
+                    src: '/images/UKYouth_White.png',
+                    alt: 'UK Youth Footer Logo'
+                }) }}
+            {% endcall %}
+            {% call bcGrid({
+                size: '1/3',
+                classes: 'bc-footer__row fs-!-margin-bottom-2'
+            }) %}
+                {% call bcProse({
+                    classes: 'bc-footer__col'
+                }) %}
+                    <address>
+                        Westminster Office<br>
+                        8th Floor, Kings Buildings<br>
+                        16 Smith Square<br>
+                        London SW1P 3HQ
+                    </address>
+                {% endcall %}
+                {% call bcProse({
+                    classes: 'bc-footer__col'
+                }) %}
+                    <a href="mailto:info@ukyouth.org">info@ukyouth.org</a>
+                {% endcall %}
+                {% call bcProse({
+                    classes: 'bc-footer__col bc-footer__social'
+                }) %}
+                    <p class="fs-!-margin-bottom-2">Follow us</p>
+                    <ul class="bc-footer__socials-menu">
+                        <li class="bc-footer__menu-item">
+                            <a href="https://www.linkedin.com/company/859973/" title="Linked In" target="_blank">
+                                <i class="fab fa-fw fa-linkedin"></i>
+                                <span class="sr-only">Linked In</span>
+                            </a>
+                        </li>	
+                        <li class="bc-footer__menu-item">
+                            <a href="https://www.facebook.com/UKYouth" title="Facebook" target="_blank">
+                                <i class="fab fa-fw fa-facebook-f"></i>
+                                <span class="sr-only">Facebook</span>
+                            </a>
+                        </li>	
+                        <li class="bc-footer__menu-item">
+                            <a href="https://www.twitter.com/UKYouth" title="Twitter" target="_blank">
+                                <i class="fab fa-fw fa-twitter"></i>
+                                <span class="sr-only">Twitter</span>
+                            </a>
+                        </li>	
+                        <li class="bc-footer__menu-item">
+                            <a href="https://www.instagram.com/uk.youth/" title="Instagram" target="_blank">
+                                <i class="fab fa-fw fa-instagram"></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>	
+                    </ul>
+                {% endcall %}
+            {% endcall %}
+            {% call bcGrid({
+                size: '1/2',
+                classes: 'bc-footer__row fs-!-margin-bottom-2'
+            }) %}
+                {% call bcProse({
+                    classes: 'bc-footer__col'
+                }) %}
+                    <p class="bc-footer--small-copy">
+                        © UK Youth 2020 | Registered Charity No: 1110590 | <a href="https://avedesign.studio" title="Website by Ave Design" target="_blank">Site by Ave design</a>
+                    </p>
+                {% endcall %}
+                {% call bcProse({
+                    classes: 'bc-footer__col'
+                }) %}
+                    <ul class="bc-footer__menu bc-footer--small-copy">
+                        <li class="bc-footer__menu-item menu-item-type-post_type menu-item-object-page menu-item-209">
+                            <a href="https://www.ukyouth.org/privacy-policy/">Privacy Policy</a>
+                        </li>
+                        <li class="bc-footer__menu-item menu-item-type-post_type menu-item-object-page menu-item-211">
+                            <a href="https://www.ukyouth.org/accessibility/">Accessibility</a>
+                        </li>
+                        <li class="bc-footer__menu-item menu-item-type-post_type menu-item-object-page menu-item-333">
+                            <a href="https://www.ukyouth.org/our-policies/">Our policies</a>
+                        </li>
+                        <li class="bc-footer__menu-item menu-item-type-custom menu-item-object-custom menu-item-9393">
+                            <a target="_blank" rel="noopener" href="https://www.ukyouth.org/wp-content/uploads/2020/11/3.9-Children-Young-People-Privacy-Notice.pdf">Children &amp; young people’s privacy policy</a>
+                        </li>
+                    </ul>
+                {% endcall %}
+            {% endcall %}
+        </div>
+    </div>
+</footer>

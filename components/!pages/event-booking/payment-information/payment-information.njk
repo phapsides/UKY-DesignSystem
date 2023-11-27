@@ -1,0 +1,193 @@
+{% extends '@t-right-sidebar' %}
+
+{% block stepIndicator %}
+    {% from 'icon/macro.njk' import bcIcon %}
+
+
+    <div data-module="bc-step-indicator" class="bc-step-indicator">
+        <div class="bc-step-indicator__step complete">
+            <div class="bc-step-indicator__step-number">
+                {{ bcIcon({
+                    variant: 'check'
+                }) }}
+            </div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 1</strong></p>
+                <p>Basket</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line complete"></div>
+        <div class="bc-step-indicator__step complete">
+            <div class="bc-step-indicator__step-number">
+                {{ bcIcon({
+                    variant: 'check'
+                }) }}
+            </div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 2</strong></p>
+                <p>Billing</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line complete"></div>
+        <div class="bc-step-indicator__step complete">
+            <div class="bc-step-indicator__step-number">
+                {{ bcIcon({
+                    variant: 'check'
+                }) }}
+            </div>
+            <div class="bc-step-indicator__body ">
+                <p><strong>Step 3</strong></p>
+                <p>Gift aid</p>
+            </div> 
+        </div>
+        <div class="bc-step-indicator__line complete"></div>
+        <div class="bc-step-indicator__step" aria-current="step">
+            <div class="bc-step-indicator__step-number">4</div>
+            <div class="bc-step-indicator__body">
+                <p><strong>Step 4</strong></p>
+                <p>Payment</p>
+            </div> 
+        </div>
+    </div>  
+{% endblock %}
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "form/macro.njk" import bcForm %}
+	{% from "button/macro.njk" import bcButton %}
+    {% from "input/macro.njk" import bcInput %}
+
+	<div class="ip-payment-information">
+
+        {{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Payment'
+		}) }}
+
+        <div class="ip-payment-information__shipping-details fs-!-padding-block-4 fs-!-padding-inline-4">
+            <div class="ip-payment-information__shipping-details-row fs-!-padding-bottom-2">
+                <p class="ip-payment-information__shipping-details-column fs-!-padding-block-">Contact</p>
+                <p class="ip-payment-information__shipping-details-column">
+                   michelle@baker.com
+                </p>
+            </div>
+            <div class="ip-payment-information__shipping-details-row">
+                <p class="ip-payment-information__shipping-details-column">Ship to</p>
+                <p class="ip-payment-information__shipping-details-column">
+                    <span>
+                        5 Station Road, Cirencester, GL7 6GN, United Kingdom
+                    </span>
+                    <a href="#" title="" class="ip-payment-information__shipping-details-link">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="ip-payment-information__section fs-!-margin-top-8">
+            {{ bcHeading({
+                hierarchy: 2,
+                text: 'Payment details'
+            }) }}
+            <p>
+                All transactions are secure and encrypted.
+            </p>
+            {% call bcForm({
+                action: '',
+                method: '',
+                disableUnloadPrompt: true
+            }) %}
+                {{ bcInput({
+                    name: 'CardName',
+                    label: { 
+                        text: 'Name on the card' 
+                    },
+                    required: true
+                }) }}
+                {{ bcInput({
+                    name: 'CardNumber',
+                    label: { 
+                        text: 'Card number' 
+                    },
+                    type: 'number',
+                    required: true
+                }) }}
+                <div class="bc-form-field-group">
+                    {{ bcInput({
+                        name: 'ExpirationDate',
+                        label: { 
+                            text: 'Expiration date' 
+                        },
+                        placeholder: 'MM - YY',
+                        required: true
+                    }) }}
+                    {{ bcInput({
+                        name: 'SecurityCode',
+                        label: { 
+                            text: 'Security code' 
+                        },
+                        type: 'number',
+                        required: true
+                    }) }}
+                </div>
+                <div class="bc-button-group fs-!-margin-top-6">
+                    {{ bcButton({
+                        appearance: 'link',
+                        text: 'Return to Debit Direct'
+                    }) }}
+                
+                    {{ bcButton({
+                        appearance: 'primary',
+                        type: 'submit',
+                        text: 'Pay mow',
+                        attributes: { 
+                            'name': 'testName', 
+                            'value': 'testValue' 
+                        }
+                    }) }}
+                </div>
+
+
+            {% endcall %}
+        </div>
+	</div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {% from "cart/macro.njk" import bcCart %}
+    {% from "alert/macro.njk" import bcAlert %}
+
+	<div class="ip-payment-information__cart fs-!-padding-block-3 fs-!-padding-inline-2">
+        <div class="ip-payment-information__cart-items fs-!-margin-bottom-4">
+            {{ bcCart({
+                position: 'sidebar',
+                items: [
+                    { 
+                        name: 'UK Youth Fund Thriving Minds - Meet the Funder Application Webinar',
+                        details: 'One-off payment',
+                        price: '£30'
+                    },
+                    { 
+                        name: 'Monthly donation',
+                        details: 'Direct debit',
+                        price: '£5'
+                    }
+                ]
+            }) }}
+        </div>
+
+        <div class="ip-payment-information__cart-summary">
+            <p>Total</p>
+            <p class="ip-payment-information__total-amount">£35</p>
+        </div>
+	</div>
+
+    <div class="ip-payment-information__cart-notification fs-!-margin-top-5">
+        {% call bcAlert() %}
+            <p>Your basket contains a mix of one-off purchases and recurring payments. Payment details for these will be entered separately.</p>
+        {% endcall %}
+    </div>
+
+{% endblock %}

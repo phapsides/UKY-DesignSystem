@@ -1,0 +1,29 @@
+{% from "button/macro.njk" import bcButton %}
+
+<div 
+    data-module="bc-cart" 
+    class="bc-cart {%- if params.classes %} {{ params.classes }}{% endif %}" 
+    {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}" {% endfor %}
+    {%- if params.position %} data-position="{{ params.position }}"{% endif %}
+>
+    <ul class="bc-cart__list">
+        {%- for item in params.items %}
+            <li class="bc-cart__item">
+                <div class="bc-cart__item-inner">
+                    <p class="bc-cart__item-name">{{ item.name }}</p>
+                    {%- if params.position %}
+                        <p class="bc-cart__item-details">{{ item.details }}</p>
+                    {% endif %}
+                </div>
+                <div class="bc-cart__item-total">
+                    <p class="bc-cart__item-price">{{ item.price }}</p> 
+                    {{ bcButton({
+                        classes: 'bc-cart__item-remove',
+                        appearance: 'link',
+                        text: 'Remove'
+                    }) }}
+                </div>
+            </li>
+        {%- endfor %}
+    </ul>
+</div>

@@ -1,0 +1,50 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "heading/heading";
+
+.ip-gift-aid {
+	&__cart {
+		background-color: colors.fs-color(white);
+	}
+	&__cart-summary {
+		@extend .bc-heading--subtitle;
+		display: flex;
+		p {
+			margin: 0;
+			&:last-of-type {
+				margin-left: auto;
+			}
+		}
+	}
+	&__total-amount {
+		color: colors.fs-color(black);
+	}
+	&__notification {
+		.bc-alert {
+			border: 0 none;
+			&__icon {
+				top: 0.25rem;
+				left: 0;
+			}
+			&__body {
+				padding-left: 2rem;
+			}
+		}
+	}
+	.bc-form-row {
+		margin: 0;
+	}
+	.bc-checkbox__body {
+		width: 90%;
+	}
+	.bc-button-group {
+		display: flex;
+		[data-appearance="primary"] {
+			margin-left: auto;
+		}
+		a {
+			align-self: center;
+		}
+	}
+}

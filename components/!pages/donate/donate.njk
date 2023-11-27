@@ -1,0 +1,131 @@
+{% extends '@t-centered' %}
+
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "form/macro.njk" import bcForm %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "choice-selector-card/macro.njk" import bcChoiceSelectorCard %}
+
+	<div class="ip-donate">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'Donate today'
+		}) }}
+
+		{% call bcProse() %}
+			<p>	
+				With your help, we can make sure that next year – and every year – is filled with possibilities. Please help us support young people through youth work and together we’ll make it clear that we #BelieveInYouth.
+			</p>
+		{% endcall %}
+
+		{% call bcForm({
+			classes: 'fs-!-margin-top-8',
+			action: '',
+			method: '',
+			disableUnloadPrompt: true
+		}) %}
+				
+			{{ bcChoiceSelectorCard({
+				classes: 'fs-!-margin-bottom-4',
+				name: 'DonationType',
+				layout: 'horizontal',
+				legend: {
+					text: 'Choose a donation type'
+				},
+				items: [
+						{ 
+							label: 'One-off', 
+							checked: true
+						},
+						{ 
+							label: 'Monthly'
+						}
+				]
+			}) }}
+			
+			{{ bcChoiceSelectorCard({
+				classes: 'fs-!-margin-bottom-4',
+				name: 'DonationAmount',
+				legend: {
+					text: 'Choose an amount to donate'
+				},
+				items: [
+						{ 
+							label: '£10', 
+							hint: 'Could provide a youth worker with training and resources to help tackle inequality and encourage safer communities',
+							value: '1',
+							checked: true
+						},
+						{ 
+							label: '£25', 
+							hint: 'Could enable youth workers to support young people to tackle loneliness and improve their wellbeing',
+							value: '2'
+						},
+						{ 
+							label: '£50', 
+							hint: 'could enable a youth worker to teach basic digital skills to young people who are digitally excluded',
+							value: '3'
+						},
+						{ 
+							label: '',  
+							hint: 'Enter an amount to donate:',
+							value: '4'
+						}
+				]
+			}) }}
+		
+			{{ bcButton({
+				appearance: 'primary',
+				type: 'submit',
+				text: 'Donate',
+				attributes: { 
+					'name': 'testName', 
+					'value': 'testValue' 
+				}
+			}) }}
+
+		{% endcall %}
+	</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+
+        function changeAmountRadios() {
+
+			const $radios = document.querySelectorAll('input[type=radio][name="DonationAmount"]');
+			const $valueInput = document.querySelector('[data-id="DonationAmount-4-amount"]');
+			const $radioWithInput = document.querySelector('[data-id="DonationAmount-4"]');
+		
+		
+			const focusInput = () => {
+				$valueInput.focus();
+			}
+
+            const clearInput = () => {
+				$valueInput.value = "";
+			}
+
+            $radios.forEach(radio => radio.addEventListener('change', () => 
+                radio.value == 4 ?
+                    focusInput() :
+                    clearInput()
+                ));
+
+			$valueInput.addEventListener('focus', (event) => {
+				$radioWithInput.checked = true;
+			});
+		}
+		
+		window.addEventListener("DOMContentLoaded", () => {
+			changeAmountRadios();
+
+		})
+
+
+    </script>
+{% endblock %}

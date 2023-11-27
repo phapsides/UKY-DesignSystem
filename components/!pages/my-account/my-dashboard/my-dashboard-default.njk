@@ -1,0 +1,180 @@
+{% extends '@t-left-sidebar' %}
+
+
+{% block body %}
+	{% from "heading/macro.njk" import bcHeading %}
+	{% from "grid/macro.njk" import bcGrid %}
+	{% from "card/macro.njk" import bcCard %}
+	{% from "button/macro.njk" import bcButton %}
+	{% from "event-card/macro.njk" import bcEventCard %}
+
+	
+	<div class="ip-dashboard">
+		{{ bcHeading({
+			classes: 'fs-!-margin-bottom-2',
+			hierarchy: 1,
+			text: 'My dashboard'
+		}) }}
+
+		
+		{% call bcGrid({
+			classes: 'ip-dashboard__section',
+			size: '1/1'
+		}) %}
+			{% call bcCard({
+				profile: true,
+				heading: {
+					text: 'Welcome Michelle',
+					hierarchy: 2
+				},
+				button: {
+					appearance: 'primary',
+					text: 'Go to profile',
+					href: '#'
+				}
+			}) %}
+				{% call bcProse() %}
+					<p>Manage your personal details, communication preferences and membership subscription.</p>
+				{% endcall %}
+			{% endcall %}
+			
+			<div class="ip-dashboard__event-section">
+				{% call bcEventCard({
+					horizontal: true,
+					href: '#',
+					heading: {
+						text: 'Getting started and using LinkedIn for young people aged 16-25',
+						hierarchy: 3
+					},
+					image: {
+						src: ('/images/temp/temp-background.webp' | path),
+						alt: 'Anim magna laborum sint anim nisi reprehenderit laboris amet.',
+						imgCaption: 'Setting up your linkedin profile for 16-25 year olds'
+					},
+					date: '18 November 2021',
+					time: '10:00'
+					
+				}) %}
+					{% call bcProse() %}
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+					{% endcall %}
+				{% endcall %}
+				{{ bcButton({
+                	appearance: 'primary',
+                	text: 'View all my events'
+            	}) }}
+			</div>
+
+			{% call bcCard({
+				heading: {
+					text: 'Your programmes and grants',
+					hierarchy: 2
+				},
+				button: {
+					appearance: 'primary',
+					text: 'View all grants',
+					href: '#'
+				}
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+		{% endcall %}
+		
+		{% call bcGrid({
+			classes: 'ip-dashboard__section fs-!-margin-top-5',
+			size: '1/2'
+		}) %}
+			{% call bcCard({
+				size: '1/2',
+				donate: true,
+				donateAmount: '1,250',
+				donateDate: '2 Feb, 2022',
+				heading: {
+					text: 'My donations',
+					hierarchy: 2
+				},
+				button: {
+					appearance: 'primary',
+					text: 'Go to my donation',
+					href: '#'
+				}
+			}) %}
+				{% call bcProse() %}
+					<p>Please help us support young people through youth work and together we’ll make it clear that we #BelieveInYouth.</p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcCard({
+				size: '1/2',
+				heading: {
+					text: 'My pledges',
+					hierarchy: 2
+				},
+				button: {
+					appearance: 'primary',
+					text: 'Go to my pledges',
+					href: '#'
+				}
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcCard({
+				size: '1/2',
+				heading: {
+					text: 'Organisations',
+					hierarchy: 2
+				},
+				button: {
+					appearance: 'primary',
+					text: 'Go to organisations',
+					href: '#'
+				}
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+			{% call bcCard({
+				size: '1/2',
+				heading: {
+					text: 'Resources',
+					hierarchy: 2
+				},
+				button: {
+					appearance: 'primary',
+					text: 'Browse resources',
+					href: '#'
+				}
+			}) %}
+				{% call bcProse() %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+				{% endcall %}
+			{% endcall %}
+		{% endcall %}
+	
+	</div>
+
+{% endblock %}
+
+{% block sidebar %}
+	{% from "sub-nav/macro.njk" import bcSubnav %}
+
+	{{ bcSubnav({
+		items: [
+			{ href: '#', text: 'My dashboard', current: true },
+			{ href: '#', text: 'My events' },
+			{ href: '#', text: 'Grants & Programmes' },
+			{ href: '#', text: 'My donations' },
+			{ href: '#', text: 'My pledges' },
+			{ href: '#', text: 'Organisations' },
+			{ href: '#', text: 'Resources' },
+			{ href: '#', text: 'Personal details' },
+			{ href: '#', text: 'Communication preferences' },
+			{ href: '#', text: 'Contact us' }
+		]
+	}) }}
+
+{% endblock %}

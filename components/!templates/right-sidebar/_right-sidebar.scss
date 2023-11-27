@@ -1,0 +1,31 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "objects/lists";
+@use "helpers/spacing";
+@use "helpers/media-queries";
+@use "core/global";
+
+.it-right-sidebar {
+	margin-bottom: 3rem;
+    margin-top: 6rem;
+	@include media-queries.fs-mq($from: tablet) {
+		margin-bottom: 8rem;
+    	margin-top: 12rem;
+	}
+
+	&__document {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 3rem;
+		@include media-queries.fs-mq($from: tablet) {
+			grid-gap: 12.5rem;
+			grid-template-columns: 4fr 3fr;
+		}
+	}
+	&__body {
+		
+	}
+	.bc-step-indicator {
+		max-width: 587px;
+	}
+}

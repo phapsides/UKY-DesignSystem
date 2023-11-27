@@ -1,0 +1,41 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "objects/container";
+@use "helpers/colors";
+
+.bc-page-header {
+    position: relative;
+    &__inner {
+        @extend .bc-container;
+    }   
+    &__body {
+        @extend .bc-container__inner;
+        position: relative;
+        z-index: 10;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        @media only screen and (min-width: 1025px) {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+    }
+    .bc-heading {
+        color: colors.fs-color(white);
+    }
+    .bc-image {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        // transform: skewY(0.90deg) translate3d(0,0,0);
+    }
+    @at-root #content & { 
+        position: relative;
+        top: 4.75rem;
+        @media only screen and (min-width: 1025px) {
+            top: 6rem;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "sass:math";
+
+.bc-details {
+	$self: &;
+	$arrowSize: 1.25rem;
+	overflow: hidden;
+	margin-bottom: 1rem;
+	border: 2.5px solid colors.fs-color(brand-primary);
+	background: colors.fs-color(white);
+	transition: all;
+	&:last-of-type {
+		padding-bottom: 0;
+	}
+	summary {
+		list-style: none;
+	}
+	&[open] {
+		#{$self}__icon {
+			transform: rotate(-180deg);
+		}
+	}
+	&__summary {
+		color: colors.fs-color(brand-primary);
+		cursor: pointer;
+		position: relative;
+		padding: 0.5rem 0;
+	}
+	&__icon {
+		transition: all 0.5s;
+		&.bc-icon {
+			width: $arrowSize;
+			height: $arrowSize;
+		}
+	}
+	&__heading {
+		display: inline-block;
+		margin: 0;
+		padding-left: 1.5rem;
+		width: calc(100% - (#{$arrowSize} + 2rem));
+	}
+	&__body {
+		padding: 1em 1.5em;
+		> * {
+			margin-top: 0;
+		}
+	}
+}

@@ -1,0 +1,76 @@
+@use "@querkmachine/felafel/src/scss/settings";
+@use "helpers/colors";
+@use "helpers/typography";
+@use "helpers/media-queries";
+
+
+
+.bc-step-indicator {
+    $self: &;
+	$stepSize: 2.1875rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.3125rem;
+    padding-bottom: $stepSize;
+    @include media-queries.fs-mq($from: tablet) {
+        margin-bottom: $stepSize;
+    }
+    &__step {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+    }
+    &__step-number {
+        @include typography.fs-font-size(body-small);
+        height: $stepSize;
+        width: $stepSize;
+        border-radius: 50%;
+        border: 2.5px solid colors.fs-color(text);
+        text-align: center;
+        color: colors.fs-color(text);
+        position: relative;
+        line-height: 2;
+        .complete & {
+            background: colors.fs-color(card-shadow);
+            color: colors.fs-color(white);
+            border-color: colors.fs-color(card-shadow);
+        }
+        [aria-current="step"] & {
+            border-color: colors.fs-color(card-shadow);
+            color: colors.fs-color(card-shadow);
+        }
+    }
+    &__line {
+        width: 100%;
+        height: 2.5px;
+        background: colors.fs-color(text);
+        flex: 1;
+        &.complete {
+            background: colors.fs-color(card-shadow);
+        }
+    }
+    &__body {
+        @include typography.fs-font-size(body-small);
+        text-align: center;
+        position: absolute;
+        top: 2.8125rem;
+        width: 5.625rem;
+        color: colors.fs-color(text);
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        @include media-queries.fs-mq($from: tablet) {
+            display: block;
+        }
+        p {
+            line-height: 1.25;
+            margin: 0;
+        }
+        [aria-current="step"] &,
+        .complete & {
+            color: colors.fs-color(card-shadow);
+        }
+    }
+}
